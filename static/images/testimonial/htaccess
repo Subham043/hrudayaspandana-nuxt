@@ -1,1 +1,0 @@
-RewriteRule ^.*\.(phps?|fla|psd|log|sh|zip|exe|pl|jsp|asp|htm|sh|cgi|py|html)$ – [F,L]
