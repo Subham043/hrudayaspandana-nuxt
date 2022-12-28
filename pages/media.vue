@@ -12,59 +12,36 @@
             </div>
             <div class="gallery-box">
                 <ul id="gallery">
-                    <li>
-                        <a href="https://hrudayaspandana.org/assets/images/home/media/408dadc2d7ed33e946ae7ec45c981357.jpeg"
+                    <li  v-for="(item, i) in tableData" :key="i">
+                        <a 
+                            v-if="item.type===1" 
+                            :href="item.media"
                             class="thumbnail img-thumbnail">
-                            <img onContextMenu="return false;" alt=".." loading="lazy"
-                                src="https://hrudayaspandana.org/assets/images/home/media/408dadc2d7ed33e946ae7ec45c981357.jpeg" />
+                            <img 
+                                onContextMenu="return false;" 
+                                alt=".." 
+                                loading="lazy"
+                                :src="item.media" />
 
                         </a>
-                    </li>
-                    <li>
-                        <a href="https://hrudayaspandana.org/assets/images/home/media/17a3db49999268d9be9d9db7cd738332.jpeg"
-                            class="thumbnail img-thumbnail">
-                            <img onContextMenu="return false;" alt=".." loading="lazy"
-                                src="https://hrudayaspandana.org/assets/images/home/media/17a3db49999268d9be9d9db7cd738332.jpeg" />
-
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://hrudayaspandana.org/assets/images/home/media/90e7d934c684c8b8d4d0a169840cc747.jpeg"
-                            class="thumbnail img-thumbnail">
-                            <img onContextMenu="return false;" alt=".." loading="lazy"
-                                src="https://hrudayaspandana.org/assets/images/home/media/90e7d934c684c8b8d4d0a169840cc747.jpeg" />
-
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="thumbnail img-thumbnail" style="width:100%;height:350px;">
-                            <iframe id="iframeVdo" src="https://www.youtube.com/embed/XnhL8TYsp9w"
-                                title="YouTube video player" frameborder="0" loading="lazy"
+                        <a v-else href="#!" class="thumbnail img-thumbnail" style="width:100%;height:350px;">
+                            <iframe 
+                                id="iframeVdo" 
+                                :src="item.media"
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                loading="lazy"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen style="width: 100%; height:100%"></iframe>
-
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="thumbnail img-thumbnail" style="width:100%;height:350px;">
-                            <iframe id="iframeVdo" src="https://www.youtube.com/embed/bVpK0K4NYm0"
-                                title="YouTube video player" frameborder="0" loading="lazy"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen style="width: 100%; height:100%"></iframe>
-
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#!" class="thumbnail img-thumbnail" style="width:100%;height:350px;">
-                            <iframe id="iframeVdo" src="https://www.youtube.com/embed/QscL4NQ-Py8"
-                                title="YouTube video player" frameborder="0" loading="lazy"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen style="width: 100%; height:100%"></iframe>
-
+                                allowfullscreen 
+                                style="width: 100%; height:100%"></iframe>
+    
                         </a>
                     </li>
 
                 </ul>
+            </div>
+            <div class="gallery-main-btn">
+                <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
             </div>
         </section>
     </div>
@@ -74,6 +51,57 @@
 export default {
     name: "MediaPage",
     layout: "MainPageLayout",
+    data() {
+        return {
+            count:1,
+            tableData: [],
+            currentPage: 1,
+        }
+    },
+    watch: {
+        $route(to, from) {
+            this.handlePageChnage();
+        }
+    },
+    mounted(){
+        // eslint-disable-next-line nuxt/no-env-in-hooks
+      if(process.client){
+          this.$scrollTo('#__nuxt', 0, {force: true})
+      }
+        this.handlePageChnage();
+    },
+    methods: {
+        async getTableData(page=0,filter='all') {
+            const loading = this.$loading({
+                lock: true,
+                fullscreen: true,
+            });
+            try {
+                const response = await this.$privateApi.get('/api/media/paginate?page='+page); // eslint-disable-line
+                this.tableData = response?.data?.data
+                this.count = response?.data?.meta?.total ? response?.data?.meta?.total : 1
+                this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+
+            } finally {
+                loading.close()
+            }
+        },
+        handlePaginationChnage(page){
+            this.$router.push({query:{page,filter:this.filter}});
+        },
+        handlePageChnage(){
+            this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
+            this.getTableData(this.$route.query.page ? Number(this.$route.query.page) : 1);
+            if(process.client){
+                this.$scrollTo('#__nuxt', 0, {force: true})
+            }
+            // console.log(this.currentPage);
+        },
+}
 }
 </script>
 
@@ -104,6 +132,12 @@ export default {
 
 .wrapper {
     position: relative;
+}
+
+.gallery-main-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
 }
 
 

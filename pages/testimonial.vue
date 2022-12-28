@@ -14,25 +14,28 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col">
                         <div class="text">
                             <div class="owl-carousel">
-                                <VueSlickCarousel v-bind="slickOptions" ref="slickWord">
-                                    <div v-for="(item, i) in testimonialWords" :key="i">
-                                        <div class="testimonial-main-div">
-                                            <div class="testimonial-hover-div">
-                                                <div class="testimonial-div-image">
-                                                    <img onContextMenu="return false;"
-                                                        src="/images/round-logo.webp"
-                                                        alt="">
-                                                </div>
-                                                <div class="testimonial-div-quote">
-                                                    <div class="scroll-div">
-                                                        <p>{{item.description}}</p>
+                                <template v-if="testimonialWords.length>0">
+                                    <VueSlickCarousel v-bind="slickOptions" ref="slickWord">
+                                        <div v-for="(item, i) in testimonialWords" :key="i">
+                                            <div class="testimonial-main-div">
+                                                <div class="testimonial-hover-div">
+                                                    <div class="testimonial-div-image">
+                                                        <img 
+                                                            onContextMenu="return false;"
+                                                            src="/images/round-logo.webp"
+                                                            alt="">
                                                     </div>
-    
+                                                    <div class="testimonial-div-quote">
+                                                        <div class="scroll-div">
+                                                            <p>{{item.testimonial}}</p>
+                                                        </div>
+        
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </VueSlickCarousel>
+                                    </VueSlickCarousel>
+                                </template>
                             </div>
                         </div>
                     </div>
@@ -45,19 +48,24 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col">
                         <div class="text">
                             <div class="owl-carousel">
-                                <VueSlickCarousel v-bind="slickOptions" ref="slickVideo">
-                                    <div v-for="(item, i) in testimonialVideos" :key="i">
-                                        <div class="testimonial-video-main-div">
-                                            <div class="testimonial-video-hover-div">
-                                                <iframe id="iframeVdo" class="iframe-video" :src="item.video"
-                                                    title="YouTube video player" frameborder="0"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                    allowfullscreen
-                                                    style="width: 100%; height:100%;border-radius: 5px;border-top-right-radius: 30px;border-bottom-left-radius: 30px;"></iframe>
+                                <template v-if="testimonialVideos.length>0">
+                                    <VueSlickCarousel v-bind="slickOptions" ref="slickVideo">
+                                        <div v-for="(item, i) in testimonialVideos" :key="i">
+                                            <div class="testimonial-video-main-div">
+                                                <div class="testimonial-video-hover-div">
+                                                    <iframe 
+                                                        id="iframeVdo" 
+                                                        class="iframe-video" 
+                                                        :src="item.testimonial"
+                                                        title="YouTube video player" frameborder="0"
+                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                        allowfullscreen
+                                                        style="width: 100%; height:100%;border-radius: 5px;border-top-right-radius: 30px;border-bottom-left-radius: 30px;"></iframe>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </VueSlickCarousel>
+                                    </VueSlickCarousel>
+                                </template>
 
                             </div>
                         </div>
@@ -76,19 +84,8 @@ export default {
     layout: "MainPageLayout",
     data(){
         return {
-            testimonialWords: [
-                {description:"The food was really authentic. Initially I was hesitant to fill up the form and take the service but now am overwhelmed with the service we have been given from your team."},
-                {description:"Special thanks to all those people who delivered us food even in tough weather and working conditions to make sure we’re fed the food. The food delivered by them was a very appetizing one and every day they used to add a note &quot;Get Well Soon&quot; which always made our day. I would once again like to thank all the trustee members from the bottom of my heart for supporting us."},
-                {description:"They provided assistance with not just food but with any other problem we were facing and that had made us all spellbound. We are really thankful for such wonderful gestures, you have provided to us during these difficult times. You are the live example of prevailing humanity and modesty in the present world."},
-            ],
-            testimonialVideos: [
-                {video:"https://www.youtube.com/embed/aQYMhU1iu0g"},
-                {video:"https://www.youtube.com/embed/FQLvlGRRSvo"},
-                {video:"https://www.youtube.com/embed/cxT-8QB6uTU"},
-                {video:"https://www.youtube.com/embed/ePNGBy6PQLc"},
-                {video:"https://www.youtube.com/embed/KcmKXaX0UwA"},
-                {video:"https://www.youtube.com/embed/qNRyrfMVfbU"},
-            ],
+            testimonialWords: [],
+            testimonialVideos: [],
             slickOptions: {
                 arrows: false,
                 dots: false,
@@ -122,6 +119,50 @@ export default {
             },
         }
     },
+    mounted(){
+        // eslint-disable-next-line nuxt/no-env-in-hooks
+      if(process.client){
+          this.$scrollTo('#__nuxt', 0, {force: true})
+      }
+        this.getWordData();
+        this.getVideoData();
+    },
+    methods: {
+        async getWordData() {
+            const loading = this.$loading({
+                lock: true,
+                fullscreen: true,
+            });
+            try {
+                const response = await this.$privateApi.get('/api/testimonial/filter?filter=1'); // eslint-disable-line
+                this.testimonialWords = response?.data?.data
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+
+            } finally {
+                loading.close()
+            }
+        },
+        async getVideoData() {
+            const loading = this.$loading({
+                lock: true,
+                fullscreen: true,
+            });
+            try {
+                const response = await this.$privateApi.get('/api/testimonial/filter?filter=2'); // eslint-disable-line
+                this.testimonialVideos = response?.data?.data
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+
+            } finally {
+                loading.close()
+            }
+        },
+    }
 }
 </script>
 
