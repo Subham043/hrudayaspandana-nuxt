@@ -5,13 +5,14 @@
             <div class="wrapper">
                 <div class="slider-div-box">
                     <div class="regular slider">
-                        <VueSlickCarousel v-bind="slickOptions" ref="slickBanner">
-                            <BannerSlideComponent 
-                                v-for="(item, i) in banner" :key="i"
-                                :image="item.image" 
-                                :quote1="item.quote1" 
-                                :quote2="item.quote2" />
-                        </VueSlickCarousel>
+                        <template v-if="banner.length>0">
+                            <VueSlickCarousel v-bind="slickOptions" ref="slickBanner">
+                                <BannerSlideComponent 
+                                    v-for="(item, i) in banner" :key="i"
+                                    :image="item.image" 
+                                    :quote="item.quote" />
+                            </VueSlickCarousel>
+                        </template>
                     </div>
                 </div>
             </div>
@@ -47,54 +48,81 @@
                     <h4>Subscribe For More Updates</h4>
                     <p>Life is a challenge, meet it! Life is a dream, realize it! Life is a game, play it! Life is love,
                         spread it!</p>
-                    <form id="subscribeForm" method="post">
+                    <ValidationObserver ref="form" v-slot="{ handleSubmit }">
+                    <form id="subscribeForm" method="post" @submit.prevent="handleSubmit(formHandler)">
                         <div class="row mb-4">
                             <div class="col-lg-4">
                                 <div>
-                                    <input type="text" class="form-control form-donation-input" id="subscribeName"
-                                        name="name" placeholder="Name*" value="">
-                                    <div id="subscribeNameError" style="color:red;font-style:italic;"></div>
+                                    <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="name">
+                                        <input 
+                                            id="subscribeName"
+                                            v-model="name" 
+                                            type="text" 
+                                            class="form-control form-donation-input" 
+                                            name="name" placeholder="Name*" value="">
+                                        <div :class="classes">{{ errors[0] }}</div>
+                                    </ValidationProvider>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div>
-                                    <input type="text" class="form-control form-donation-input" id="subscribePhone"
+                                    <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="phone">
+                                        <input 
+                                        id="subscribePhone"
+                                        v-model="phone" 
+                                        type="text" 
+                                        class="form-control form-donation-input" 
                                         name="phone" placeholder="Mobile*" value="">
-                                    <div id="subscribePhoneError" style="color:red;font-style:italic;"></div>
+                                        <div :class="classes">{{ errors[0] }}</div>
+                                    </ValidationProvider>
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div>
-                                    <input type="text" class="form-control form-donation-input" id="subscribeEmail"
-                                        name="email" placeholder="Email*" value="">
+                                    <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
+                                        <input 
+                                            id="subscribeEmail"
+                                            v-model="email" 
+                                            type="text" 
+                                            class="form-control form-donation-input" 
+                                            name="email" placeholder="Email*" value="">
+                                        <div :class="classes">{{ errors[0] }}</div>
+                                    </ValidationProvider>
                                     <div id="subscribeEmailError" style="color:red;font-style:italic;"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="mb-4 text-center subscription-form-tick">
-                            <input type="checkbox" class="form-check-input  form-donation-checkbox" value="ebook"
-                                id="ebook" name="ebook">
-                            <!--<label class="form-check-label" for="ebook">E-book</label>-->
-                            <!--<input type="checkbox" class="form-check-input  form-donation-checkbox" value="event" id="event"-->
-                            <!--    name="event">-->
+                            <input 
+                                id="event" 
+                                v-model="event" 
+                                type="checkbox" 
+                                class="form-check-input  form-donation-checkbox"
+                                name="event">
                             <label class="form-check-label" for="event">Events</label>
-                            <input type="checkbox" class="form-check-input  form-donation-checkbox" value="newsletter"
-                                id="newsletter" name="newsletter">
+                            <input 
+                                 id="newsletter" 
+                                 v-model="newsletter" 
+                                 type="checkbox" 
+                                 class="form-check-input  form-donation-checkbox"
+                                 name="newsletter">
                             <label class="form-check-label" for="newsletter">Newsletter</label>
-                            <input type="checkbox" class="form-check-input  form-donation-checkbox" value="blog"
-                                id="blog" name="blog">
+                            <input 
+                                id="blog" 
+                                v-model="blog" 
+                                type="checkbox" 
+                                class="form-check-input  form-donation-checkbox"
+                                name="blog">
                             <label class="form-check-label" for="blog">Blogs</label>
-                            <!--<input type="checkbox" class="form-check-input  form-donation-checkbox" value="crossword"-->
-                            <!--    id="crossword" name="crossword">-->
-                            <!--<label class="form-check-label" for="crossword">Crossword</label>-->
-                            <div id="subscribeSubscriptionError" style="color:red;font-style:italic;text-align:center;">
-                            </div>
                         </div>
                         <div class="mb-3 text-center">
-                            <button type="submit" id="subscribeSubmit"
+                            <button 
+                                id="subscribeSubmit"
+                                type="submit" 
                                 class="btn btn-primary  form-donation-submit">Subscribe Now</button>
                         </div>
                     </form>
+                    </ValidationObserver>
                 </div>
             </div>
         </section>
@@ -107,7 +135,7 @@
                 </div>
                 <div class="blogs-main">
                     <div class="blog-main-row">
-                        <HomeEventCardComponent v-for="(item, i) in event" :key="i" :image="item.image" :title="item.title" :upcoming-link="item.upcomingLink" :past-link="item.pastLink" />
+                        <HomeEventCardComponent v-for="(item, i) in events" :key="i" :image="item.image" :title="item.title" :upcoming-link="item.upcomingLink" :past-link="item.pastLink" />
                     </div>
                 </div>
             </div>
@@ -121,37 +149,17 @@
                 </div>
             </div>
             <div class="gallery-box">
-                <a href="https://hrudayaspandana.org/assets/images/home/gallery/47522e73cb2837657d0adce73eb65125.jpg"
+                <a 
+                    v-for="(item, i) in galleryImages" :key="i"
+                    :href="item.image"
                     class="thumbnail img-thumbnail">
-                    <img onContextMenu="return false;" alt=".." loading="lazy"
-                        src="https://hrudayaspandana.org/assets/images/home/gallery/47522e73cb2837657d0adce73eb65125.jpg" />
+                    <img 
+                        onContextMenu="return false;" 
+                        alt=".." 
+                        loading="lazy"
+                        :src="item.image" />
                 </a>
-                <a href="https://hrudayaspandana.org/assets/images/home/gallery/d993fbf526e0ed6642e6653b10aa4e37.jpg"
-                    class="thumbnail img-thumbnail">
-                    <img onContextMenu="return false;" alt=".." loading="lazy"
-                        src="https://hrudayaspandana.org/assets/images/home/gallery/d993fbf526e0ed6642e6653b10aa4e37.jpg" />
-                </a>
-                <a href="https://hrudayaspandana.org/assets/images/home/gallery/5d2b83e277886e7c555354162ad9b21d.jpg"
-                    class="thumbnail img-thumbnail">
-                    <img onContextMenu="return false;" alt=".." loading="lazy"
-                        src="https://hrudayaspandana.org/assets/images/home/gallery/5d2b83e277886e7c555354162ad9b21d.jpg" />
-                </a>
-                <a href="https://hrudayaspandana.org/assets/images/home/gallery/6f68a36f7998d54fa7100a56a4125767.jpg"
-                    class="thumbnail img-thumbnail">
-                    <img onContextMenu="return false;" alt=".." loading="lazy"
-                        src="https://hrudayaspandana.org/assets/images/home/gallery/6f68a36f7998d54fa7100a56a4125767.jpg" />
-                </a>
-                <a href="https://hrudayaspandana.org/assets/images/home/gallery/a6c54759108f98f935549b7d0645e38a.jpg"
-                    class="thumbnail img-thumbnail">
-                    <img onContextMenu="return false;" alt=".." loading="lazy"
-                        src="https://hrudayaspandana.org/assets/images/home/gallery/a6c54759108f98f935549b7d0645e38a.jpg" />
-                </a>
-                <a href="https://hrudayaspandana.org/assets/images/home/gallery/7e75f3a3d76bab0216b2141301277518.jpg"
-                    class="thumbnail img-thumbnail">
-                    <img onContextMenu="return false;" alt=".." loading="lazy"
-                        src="https://hrudayaspandana.org/assets/images/home/gallery/7e75f3a3d76bab0216b2141301277518.jpg" />
-                </a>
-
+                
             </div>
             <div class="gallery-main-btn">
                 <NuxtLink to="/gallery/images">View More Images</NuxtLink>
@@ -160,11 +168,18 @@
         </section>
 
 
-        <section class="video-banner"
-            style="background-image: url('https://hrudayaspandana.org/assets/images/home/video/c52859745c791c559cdd3ba0b6627f3b.jpg')">
+        <section 
+            class="video-banner"
+            :style="`background-image: url('${videoBannerImage}')`">
             <div class="wrapper video-banner-wrapper">
-                <div class="play-btn-div" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    video_url="9ERNXBcQBgU" id="modalBtn">
+                <div 
+                    id="modalBtn"
+                    class="play-btn-div" 
+                    type="button" 
+                    data-bs-toggle="modal" 
+                    data-bs-target="#exampleModal"
+                    :video_url="videoBannerVideo" 
+                    >
                     <i class="fas fa-play"></i>
                 </div>
             </div>
@@ -177,8 +192,8 @@
                     <h4 class="lower-heading">Latest From Blogs</h4>
                 </div>
 
-                <div class="events-main" id="blogApp">
-                    <div class="events-row" v-if="loading">
+                <div id="blogApp" class="events-main">
+                    <div v-if="loading" class="events-row">
                         <div class="text-center col-12">
                             <div class="spinner-border text-secondary" role="status">
                                 <span class="sr-only">Loading...</span>
@@ -191,8 +206,12 @@
 
                             <template v-if="i % 2 != 0">
                                 <div class="event-row-image">
-                                    <img loading="lazy" onContextMenu="return false;" style="margin-top:20px"
-                                        :src="item.jetpack_featured_media_url" alt="">
+                                    <img 
+                                        loading="lazy" 
+                                        onContextMenu="return false;" 
+                                        style="margin-top:20px"
+                                        :src="item.jetpack_featured_media_url" 
+                                        alt="">
                                 </div>
                                 <div class="event-row-line event-row-one">
                                     <div class="line"></div>
@@ -217,8 +236,12 @@
                                     <div class="line"></div>
                                 </div>
                                 <div class="event-row-image">
-                                    <img loading="lazy" onContextMenu="return false;" style="margin-top:20px"
-                                        :src="item.jetpack_featured_media_url" alt="">
+                                    <img 
+                                        loading="lazy" 
+                                        onContextMenu="return false;" 
+                                        style="margin-top:20px"
+                                        :src="item.jetpack_featured_media_url" 
+                                        alt="">
                                 </div>
                             </template>
                         </div>
@@ -231,19 +254,27 @@
         </section>
 
         <!-- Modal Structure -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div id="exampleModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered video-modal-dialog">
                 <div class="modal-content video-modal-content">
                     <div class="modal-header video-modal-header">
                         <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
-                        <button type="button" id="closeBtnModal" class="btn-close" data-bs-dismiss="modal"
+                        <button 
+                            id="closeBtnModal" 
+                            type="button" 
+                            class="btn-close" 
+                            data-bs-dismiss="modal"
                             aria-label="Close"></button>
                     </div>
                     <div class="modal-body video-modal-body">
-                        <iframe id="iframeVdo" src="https://www.youtube.com/embed/9ERNXBcQBgU"
-                            title="YouTube video player" frameborder="0"
+                        <iframe 
+                            id="iframeVdo" 
+                            src="https://www.youtube.com/embed/9ERNXBcQBgU"
+                            title="YouTube video player" 
+                            frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen style="width: 100%; height:500px"></iframe>
+                            allowfullscreen 
+                            style="width: 100%; height:500px"></iframe>
                     </div>
                     <!-- <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -266,19 +297,24 @@ export default {
     layout: "MainPageLayout",
     data() {
         return {
-            banner: [
-                {image:"https://hrudayaspandana.org/assets/images/home/banner/187b3dff165ecada308e20d80f9239cc.webp", quote1:"Where there is Love,", quote2:"there God is evident"},
-                {image:"https://hrudayaspandana.org/assets/images/home/banner/725a6608088d8a1ff42d58e73931c2ad.webp", quote1:"Love all Serve all", quote2:""},
-                {image:"https://hrudayaspandana.org/assets/images/home/banner/8bb75bf93fc51c03c5e2eccef7bf2376.webp", quote1:"Silence is the speech", quote2:"of the Spiritual seeker"},
-                {image:"https://hrudayaspandana.org/assets/images/home/banner/fdc6cef89cefc4bc615aa3fcecd5fc7c.webp", quote1:"There is only one religion,", quote2:"the religion of Love"},
-                {image:"https://hrudayaspandana.org/assets/images/home/banner/9a80a49a88409e7defff8c3bd25aa15c.webp", quote1:"Learn to give, not to take.", quote2:"Learn to serve, not to rule"},
-            ],
+            name: '',
+            email: '',
+            phone: '',
+            ebook: false,
+            event: false,
+            newsletter: false,
+            crossword: false,
+            blog: false,
+            banner: [],
+            galleryImages: [],
+            videoBannerImage:'',
+            videoBannerVideo:'',
             about: [
                 {image:"/images/about/about4.jpg", link:"/about", heading:"Hrudaya Spandana", description:"Hrudaya Spandana unveils the spirit of vital enthusiasm with pure intention, motivation and selfless service."},
                 {image:"/images/about/about6.webp", link:"/about/sai-mayee-trust", heading:"Sai Mayee Trust", description:"Depth of commitment towards extending selfless service with unflinching faith brings out the Divinity in each one of us."},
                 {image:"/images/about/about5.jpg", link:"/about/sai-meru-mathi-trust", heading:"Sri Sai Meru Mathi Trust", description:"The body is the temple of God and the temple is the body of societal consciousness of Divinity."}
             ],
-            event: [
+            events: [
                 {image:"/images/swamy2.jpg", title:"Manava Seva", upcomingLink:"/manava-seva/upcoming-events", pastLink:"/manava-seva/past-events"},
                 {image:"/images/swamy1.jpg", title:"Madhava Seva", upcomingLink:"/madhava-seva/upcoming-events", pastLink:"/madhava-seva/past-events"},
             ],
@@ -323,6 +359,9 @@ export default {
             this.$scrollTo('#__nuxt', 0, { force: true })
         }
         this.getBlogs();
+        this.getBanners();
+        this.getVideoBanner();
+        this.getGalleryImages();
     },
     methods: {
         nextNavClick() {
@@ -342,7 +381,105 @@ export default {
             }finally{
                 this.loading = false;
             }
-        }
+        },
+        async formHandler() {
+            const loading = this.$loading({
+            lock: true,
+            fullscreen: true,
+            });
+            try {
+                const formData = {
+                    'name': this.name,
+                    'email': this.email,
+                    'phone': this.phone,
+                    'ebook': this.ebook,
+                    'event': this.event,
+                    'blog': this.blog,
+                    'crossword': this.crossword,
+                    'newsletter': this.newsletter,
+                }
+                const response = await this.$publicApi.post('/api/subscription/create', formData); // eslint-disable-line
+                this.$toast.success('Subscribed successfully')
+                this.name=''
+                this.email=''
+                this.phone=''
+                this.ebook=false
+                this.event=false
+                this.blog=false
+                this.crossword=false
+                this.newsletter=false
+                this.$refs.form.reset();
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                this.$refs.form.setErrors({
+                    name: err?.response?.data?.errors?.name,
+                    email: err?.response?.data?.errors?.email,
+                    phone: err?.response?.data?.errors?.phone,
+                    ebook: err?.response?.data?.errors?.ebook,
+                    event: err?.response?.data?.errors?.event,
+                    blog: err?.response?.data?.errors?.blog,
+                    crossword: err?.response?.data?.errors?.crossword,
+                    newsletter: err?.response?.data?.errors?.newsletter,
+                });
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                
+            }finally{
+                loading.close()
+            }
+        },
+        async getBanners() {
+            const loading = this.$loading({
+            lock: true,
+            fullscreen: true,
+            });
+            try {
+                const response = await this.$publicApi.get('/api/banner/random'); // eslint-disable-line
+                this.banner = response.data.data
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                
+            }finally{
+                loading.close()
+            }
+        },
+        async getGalleryImages() {
+            const loading = this.$loading({
+            lock: true,
+            fullscreen: true,
+            });
+            try {
+                const response = await this.$publicApi.get('/api/gallery-image/random'); // eslint-disable-line
+                this.galleryImages = response.data.data
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                
+            }finally{
+                loading.close()
+            }
+        },
+        async getVideoBanner() {
+            const loading = this.$loading({
+            lock: true,
+            fullscreen: true,
+            });
+            try {
+                const response = await this.$publicApi.get('/api/banner-video/display'); // eslint-disable-line
+                this.videoBannerImage = response.data.data.image
+                this.videoBannerVideo = response.data.data.video
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                
+            }finally{
+                loading.close()
+            }
+        },
     }
 }
 </script>

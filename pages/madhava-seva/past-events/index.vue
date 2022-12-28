@@ -22,9 +22,7 @@
                             <h6>29</h6>
                         </div>
                         <div class="content-col">
-                            <h6> 29                                Nov                                2021 
-                                 -
-                                29                                Nov                                2021 
+                            <h6> 29 Nov 2021  - 29 Nov 2021 
                                  </h6>
                             <h4 style="text-transform: uppercase"><a
                                     href="https://hrudayaspandana.org/madhava-seva/past-events/WmUHYg==">Abhishekam at Lepakshi</a>

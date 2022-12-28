@@ -19,7 +19,14 @@ extend('secret', {
 });
 
 extend('phone', {
-  validate: value => /^((\+91?)|\+)[7-9][0-9]{9}$/.test(value),
+  validate: value => /^(0|91)?[6-9][0-9]{9}$/.test(value),
+  message: (fieldName, placeholders) => {
+    return `${fieldName} is invalid`;
+  }
+});
+
+extend('custom_message', {
+  validate: value => /^[a-z 0-9~%.:_\@\-\/\(\)\\\#\;\[\]\{\}\$\!\&\<\>\'\r\n+=,]+$/i.test(value),//eslint-disable-line
   message: (fieldName, placeholders) => {
     return `${fieldName} is invalid`;
   }

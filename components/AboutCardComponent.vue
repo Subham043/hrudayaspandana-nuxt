@@ -33,3 +33,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.about .about-row .col-3-about .about-card h4 a {
+    color: inherit;
+    text-decoration: none;
+}
+</style>

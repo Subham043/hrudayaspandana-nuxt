@@ -2,7 +2,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Mentorslab',
+    title: 'Hrudayaspandana',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
@@ -15,6 +15,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    'element-ui/lib/theme-chalk/index.css',
     '~/static/css/bootstrap.min.css',
     '~/static/css/style.css',
     '~/static/css/responsive.css',
@@ -22,6 +23,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/element-ui',
     '~/plugins/validation-provider.js',
     '~/plugins/publicApi.js',
     '~/plugins/privateApi.js',
@@ -69,7 +71,7 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: process.env.API_BASE_URL,
-    credentials: true
+    credentials: false
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

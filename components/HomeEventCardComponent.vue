@@ -109,4 +109,8 @@ export default {
     font-size: 20px;
     display: inline-block;
 }
+
+.blogs .blogs-main .blog-main-row .blog-main-single .blog-text-top, .blog-link{
+    text-decoration: none;
+}
 </style>
