@@ -179,6 +179,7 @@
                     data-bs-toggle="modal" 
                     data-bs-target="#exampleModal"
                     :video_url="videoBannerVideo" 
+                    @click="dialogFormVisible=true"
                     >
                     <i class="fas fa-play"></i>
                 </div>
@@ -253,35 +254,18 @@
             </div>
         </section>
 
-        <!-- Modal Structure -->
-        <div id="exampleModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered video-modal-dialog">
-                <div class="modal-content video-modal-content">
-                    <div class="modal-header video-modal-header">
-                        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
-                        <button 
-                            id="closeBtnModal" 
-                            type="button" 
-                            class="btn-close" 
-                            data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body video-modal-body">
-                        <iframe 
-                            id="iframeVdo" 
-                            src="https://www.youtube.com/embed/9ERNXBcQBgU"
-                            title="YouTube video player" 
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen 
-                            style="width: 100%; height:500px"></iframe>
-                    </div>
-                    <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div> -->
-                </div>
+        <el-dialog :show-close="true" :lock-scroll="true" :visible.sync="dialogFormVisible">
+            <div class="modal-body video-modal-body">
+                <iframe 
+                    id="iframeVdo" 
+                    :src="videoBannerVideo"
+                    title="YouTube video player" 
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen 
+                    style="width: 100%; height:500px"></iframe>
             </div>
-        </div>
+        </el-dialog>
 
 
 
@@ -309,6 +293,7 @@ export default {
             galleryImages: [],
             videoBannerImage:'',
             videoBannerVideo:'',
+            dialogFormVisible: false,
             about: [
                 {image:"/images/about/about4.jpg", link:"/about", heading:"Hrudaya Spandana", description:"Hrudaya Spandana unveils the spirit of vital enthusiasm with pure intention, motivation and selfless service."},
                 {image:"/images/about/about6.webp", link:"/about/sai-mayee-trust", heading:"Sai Mayee Trust", description:"Depth of commitment towards extending selfless service with unflinching faith brings out the Divinity in each one of us."},

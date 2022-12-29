@@ -167,6 +167,25 @@
                 </div>
             </div>
         </section>
+        <el-dialog :show-close="true" :lock-scroll="true" :visible.sync="dialogFormVisible">
+            <section class="payment">
+                <div class="main-div-payment">
+                    <div class="img-div">
+                        <img src="/images/logo.webp" alt="" class="logo-img">
+                    </div>
+
+                    <div id="note_div" class="text-div" style="margin-top:10px;text-align:center;">
+                        <p><strong>Note:</strong> Please scan the qr code given below to make the payment.</p>
+                    </div> 
+
+                    <div id="success_div" class="success-div" style="">
+                        <img src="/images/qr.jpg" alt=""><br>
+                    </div>
+
+                </div>
+
+            </section>
+        </el-dialog>
     </div>
 </template>
 
@@ -185,6 +204,7 @@ export default {
             state: '',
             trust: '2',
             accept: false,
+            dialogFormVisible: false,
         }
     },
     methods: {
@@ -204,7 +224,7 @@ export default {
                 formData.append('state', this.state);
                 formData.append('trust', this.trust);
                 const response = await this.$publicApi.post('/api/e-hundi/create', formData); // eslint-disable-line
-                this.$toast.success('Volunteer saved successfully')
+                this.$toast.success('Data saved successfully')
                 this.first_name=''
                 this.last_name=''
                 this.email=''
@@ -215,6 +235,7 @@ export default {
                 this.trust=''
                 this.accept=false
                 this.$refs.form.reset();
+                this.dialogFormVisible = true
             } catch (err) {
                 // console.log(err.response);// eslint-disable-line
                 this.$refs.form.setErrors({
@@ -239,5 +260,12 @@ export default {
 </script>
 
 <style scoped>
-
+.payment .main-div-payment .success-div img {
+    width: 60%;
+}
+.payment{
+    height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 </style>

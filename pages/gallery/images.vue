@@ -35,10 +35,9 @@
 
         </div>
         <div class="gallery-box">
-            <ul id="gallery">
-                <li v-for="(item, i) in tableData" :key="i">
-                    <a 
-                        :href="item.image"
+            <viewer id="gallery" class="gallery-main" :images="tableData">
+                <div v-for="(item, i) in tableData" :key="i" class="gallery-main-container">
+                    <div 
                         class="thumbnail img-thumbnail" 
                         data-liquo="Manava Seva">
                         <img 
@@ -58,10 +57,10 @@
                            </div>
                         </div>
 
-                    </a>
-                </li>
+                    </div>
+                </div>
                 
-            </ul>
+            </viewer>
             
         </div>
         <div class="gallery-main-btn">
@@ -140,6 +139,13 @@ export default {
 </script>
 
 <style scoped>
+.gallery-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
 #gallery li {
         text-align: center;
     }
@@ -232,6 +238,7 @@ export default {
         padding: 5px;
         opacity: 0;
         position: absolute;
+        pointer-events: none;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);

@@ -32,6 +32,7 @@
     "core-js": "^3.25.3",
     "element-ui": "^2.15.12",
     "nuxt": "^2.15.8",
+    "v-viewer": "^1.6.4",
     "vee-validate": "^3.4.14",
     "vue": "^2.7.10",
     "vue-pagination-2": "^3.1.0",

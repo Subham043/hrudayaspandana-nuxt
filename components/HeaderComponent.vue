@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="nav-logo">
 					<NuxtLink to="/" class="logo-link">
-						<img onContextMenu="return false;" src="https://hrudayaspandana.org/assets/images/logo.webp"
+						<img onContextMenu="return false;" src="/images/logo.webp"
 							alt="" class="logo-img">
 					</NuxtLink>
 				</div>
