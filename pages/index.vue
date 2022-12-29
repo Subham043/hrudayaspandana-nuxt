@@ -13,6 +13,14 @@
                                     :quote="item.quote" />
                             </VueSlickCarousel>
                         </template>
+                        <div>
+                            <button type="button" data-role="none" class="slick-prev slick-arrow" style="" @click="prevNavClick">
+                                <i class="fas fa-long-arrow-alt-left"></i>
+                            </button>
+                            <button type="button" data-role="none" class="slick-next slick-arrow" style="" @click="nextNavClick">
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -523,5 +531,9 @@ export default {
     /* number of lines to show */
     line-clamp: 6;
     -webkit-box-orient: vertical;
+}
+
+.slider-div-box{
+    position: relative;
 }
 </style>

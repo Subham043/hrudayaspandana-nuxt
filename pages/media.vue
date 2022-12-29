@@ -10,12 +10,12 @@
                 </div>
 
             </div>
-            <div class="gallery-box">
+            <viewer class="gallery-box" :images="tableData">
                 <ul id="gallery">
                     <li  v-for="(item, i) in tableData" :key="i">
                         <a 
                             v-if="item.type===1" 
-                            :href="item.media"
+                            href="javascript:void(0)"
                             class="thumbnail img-thumbnail">
                             <img 
                                 onContextMenu="return false;" 
@@ -24,7 +24,7 @@
                                 :src="item.media" />
 
                         </a>
-                        <a v-else href="#!" class="thumbnail img-thumbnail" style="width:100%;height:350px;">
+                        <a v-else href="javascript:void(0)" class="thumbnail img-thumbnail" style="width:100%;height:350px;">
                             <iframe 
                                 id="iframeVdo" 
                                 :src="item.media"
@@ -39,7 +39,7 @@
                     </li>
 
                 </ul>
-            </div>
+            </viewer>
             <div class="gallery-main-btn">
                 <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
             </div>

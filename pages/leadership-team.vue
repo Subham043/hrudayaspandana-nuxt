@@ -11,7 +11,6 @@
                             <h4 class="lower-heading">Leadership Team</h4>
                         </div>
                         <div class="chart-container" style="margin-top:30px">
-                            <!-- <organization-chart :datasource="ds"></organization-chart> -->
                             <organization-chart :datasource="ds">
                                 <template slot-scope="{ nodeData }">
                                     <div :class="['node-box',  nodeData.id == '1' ? 'parent' : '']">
@@ -51,6 +50,14 @@
                                         </div>
                                     </div>
                                 </VueSlickCarousel>
+                                <div class="owl-nav">
+                                    <button type="button" role="presentation" class="owl-prev" @click="prevNavClick">
+                                        <i class="fas fa-long-arrow-alt-left"></i>
+                                    </button>
+                                    <button type="button" role="presentation" class="owl-next" @click="nextNavClick">
+                                        <i class="fas fa-long-arrow-alt-right"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -240,6 +247,14 @@ export default {
             }
         }
     },
+    methods: {
+        nextNavClick() {
+            this.$refs.slickTestimonial.next()
+        },
+        prevNavClick() {
+            this.$refs.slickTestimonial.prev()
+        },
+    }
 }
 </script>
 
@@ -438,5 +453,9 @@ li .the-chart h5 {
     #flowchart {
         width: 1200px;
     }
+}
+
+.owl-carousel{
+    position: relative;
 }
 </style>

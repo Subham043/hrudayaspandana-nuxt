@@ -36,6 +36,14 @@
                                         </div>
                                     </VueSlickCarousel>
                                 </template>
+                                <div class="owl-nav">
+                                    <button type="button" role="presentation" class="owl-prev" @click="prevNavClick">
+                                        <i class="fas fa-long-arrow-alt-left"></i>
+                                    </button>
+                                    <button type="button" role="presentation" class="owl-next" @click="nextNavClick">
+                                        <i class="fas fa-long-arrow-alt-right"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -66,7 +74,14 @@
                                         </div>
                                     </VueSlickCarousel>
                                 </template>
-
+                                <div class="owl-nav">
+                                    <button type="button" role="presentation" class="owl-prev" @click="prevNavClick2">
+                                        <i class="fas fa-long-arrow-alt-left"></i>
+                                    </button>
+                                    <button type="button" role="presentation" class="owl-next" @click="nextNavClick2">
+                                        <i class="fas fa-long-arrow-alt-right"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -161,6 +176,18 @@ export default {
             } finally {
                 loading.close()
             }
+        },
+        nextNavClick() {
+            this.$refs.slickWord.next()
+        },
+        prevNavClick() {
+            this.$refs.slickWord.prev()
+        },
+        nextNavClick2() {
+            this.$refs.slickVideo.next()
+        },
+        prevNavClick2() {
+            this.$refs.slickVideo.prev()
         },
     }
 }
@@ -307,5 +334,9 @@ export default {
     border-radius: 5px;
     border-top-right-radius: 27px;
     border-bottom-left-radius: 27px;
+}
+
+.owl-carousel{
+    position: relative;
 }
 </style>
