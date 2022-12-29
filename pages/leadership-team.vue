@@ -10,6 +10,20 @@
                             <p class="upper-heading">Team</p>
                             <h4 class="lower-heading">Leadership Team</h4>
                         </div>
+                        <div class="chart-container" style="margin-top:30px">
+                            <!-- <organization-chart :datasource="ds"></organization-chart> -->
+                            <organization-chart :datasource="ds">
+                                <template slot-scope="{ nodeData }">
+                                    <div :class="['node-box',  nodeData.id == '1' ? 'parent' : '']">
+                                        <div class="node-title">{{nodeData.title}}</div>
+                                        <div class="node-content">
+                                        <img width="25%" :src="nodeData.image">
+                                        <div>{{nodeData.name}}</div>
+                                        </div>
+                                    </div>
+                                </template>
+                            </organization-chart>
+                        </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col">
                         <div class="text">
@@ -19,7 +33,9 @@
                                         <div class="testimonial-main-div">
                                             <div class="testimonial-hover-div">
                                                 <div class="testimonial-div-image">
-                                                    <img onContextMenu="return false;" loading="lazy"
+                                                    <img 
+                                                        onContextMenu="return false;" 
+                                                        loading="lazy"
                                                         :src="item.image"
                                                         alt="">
                                                 </div>
@@ -159,6 +175,69 @@ export default {
                     },
                 ],
             },
+            ds: {
+                id: "1",
+                name: "",
+                title: "Hrudayaspandana",
+                image: "/images/logo.webp",
+                children: [
+                { 
+                    id: "2", 
+                    name: "", 
+                    title: "Trust Development Specialist",
+                    image: "/images/logo.webp",
+                    children: [
+                    { id: "6", name: "", title: "Sivaumar", image: "/images/leader/leader14.webp" },
+                    ]
+                },
+                {
+                    id: "3",
+                    name: "",
+                    title: "Chief Financial Advisor",
+                    image: "/images/logo.webp",
+                    children: [
+                    { id: "4", name: "", title: "Sailesh", image: "/images/leader/leader13.jpeg" },
+                    ]
+                },
+                { 
+                    id: "8", 
+                    name: "", 
+                    title: "Advisory Committee",
+                    image: "/images/logo.webp",
+                    children: [
+                    { id: "6", name: "", title: "M Venkateswarulu", image: "/images/leader/leader9.jpg" },
+                    { id: "7", name: "", title: "Batchu Suresh", image: "/images/leader/leader8.jpg" },
+                    { id: "8", name: "", title: "Smitha Sailesh", image: "/images/leader/leader6.jpeg" },
+                    { id: "9", name: "", title: "Purnima Kurnool", image: "/images/leader/leader7.webp" },
+                    { id: "10", name: "", title: "Vijaya V", image: "/images/leader/leader15.webp" },
+                    { id: "11", name: "", title: "Shrinivas Sureban", image: "/images/leader/leader16.png" },
+                    { id: "12", name: "", title: "Venu Madhav P", image: "/images/leader/leader10.JPG" },
+                    { id: "13", name: "", title: "A Nagasree", image: "/images/leader/leader12.webp" },
+                    ]
+                },
+                {
+                    id: "9",
+                    name: "",
+                    title: "Sai Mayee Trust",
+                    image: "/images/logo.webp",
+                    children: [
+                    { id: "6", name: "", title: "Saira H", image: "/images/leader/leader1.jpg"},
+                    { id: "7", name: "", title: "PN Sreenivas", image: "/images/leader/leader2.jpg" }
+                    ]
+                },
+                {
+                    id: "10",
+                    name: "",
+                    title: "Sri Sai Meru Mathi Trust",
+                    image: "/images/logo.webp",
+                    children: [
+                    { id: "6", name: "", title: "Itta Raghunandan", image: "/images/leader/leader4.jpg" },
+                    { id: "7", name: "", title: "Jagadish K", image: "/images/leader/leader5.jpeg" },
+                    { id: "8", name: "", title: "Prasad AVSS", image: "/images/leader/leader11.jpg" }
+                    ]
+                }
+                ]
+            }
         }
     },
 }

@@ -35,6 +35,7 @@
     "v-viewer": "^1.6.4",
     "vee-validate": "^3.4.14",
     "vue": "^2.7.10",
+    "vue-organization-chart": "^1.1.6",
     "vue-pagination-2": "^3.1.0",
     "vue-scrollto": "^2.20.0",
     "vue-server-renderer": "^2.7.10",
