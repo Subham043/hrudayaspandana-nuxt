@@ -19,108 +19,162 @@
                     </div>
                     <div class="col-2-donation">
                         <h4>Personal Information</h4>
-                        <form id="donationForm" action="https://hrudayaspandana.org/donation" method="post">
-                            <input autocomplete="off" type="hidden" name="ci_csrf_token" value="">
+                        <ValidationObserver ref="form" v-slot="{ handleSubmit }">
+                        <form id="donationForm" method="post" @submit.prevent="handleSubmit(formHandler)">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <input type="text" id="fname" name="fname"
-                                            class="form-control form-donation-input" placeholder="First Name*" value="">
-                                        <div style="color:red;"></div>
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="first name">
+                                            <input 
+                                                id="fname" 
+                                                v-model="first_name" 
+                                                type="text" 
+                                                name="fname" 
+                                                class="form-control form-donation-input"
+                                                placeholder="First Name" value="">
+                                            <div :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <input type="text" id="lname" name="lname"
-                                            class="form-control form-donation-input" placeholder="Last Name*" value="">
-                                        <div style="color:red;"></div>
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="last name">
+                                            <input 
+                                                id="lname" 
+                                                v-model="last_name" 
+                                                type="text" 
+                                                name="lname" 
+                                                class="form-control form-donation-input"
+                                                placeholder="Last Name" value="">
+                                            <div :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <input type="text" id="phone" name="phone"
-                                            class="form-control form-donation-input" placeholder="Phone Number*"
-                                            value="">
-                                        <div style="color:red;"></div>
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="phone">
+                                            <input 
+                                                id="phone" 
+                                                v-model="phone" 
+                                                type="text" 
+                                                name="phone" 
+                                                class="form-control form-donation-input"
+                                                placeholder="Phone Number" value="">
+                                            <div :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <input type="email" id="email" name="email"
-                                            class="form-control form-donation-input" placeholder="Email*" value="">
-                                        <div style="color:red;"></div>
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
+                                            <input 
+                                                id="email" 
+                                                v-model="email" 
+                                                type="email" 
+                                                name="email"
+                                                class="form-control form-donation-input" placeholder="Email" value="">
+                                            <div :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <input type="text" id="city" name="city"
-                                            class="form-control form-donation-input" placeholder="City*" value="">
-                                        <div style="color:red;"></div>
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="city">
+                                            <input 
+                                                id="city" 
+                                                v-model="city" 
+                                                type="text" 
+                                                name="city" 
+                                                class="form-control form-donation-input"
+                                                placeholder="City*" value="">
+                                            <div :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <input type="text" id="state" name="state"
-                                            class="form-control form-donation-input" placeholder="State*" value="">
-                                        <div style="color:red;"></div>
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="state">
+                                            <input 
+                                                id="state" 
+                                                v-model="state" 
+                                                type="text" 
+                                                name="state" 
+                                                class="form-control form-donation-input"
+                                                placeholder="State*" value="">
+                                            <div :class="classes">{{ errors[0] }}</div>
+                                        </ValidationProvider>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <select name="trust" id="trust" class="form-control form-donation-input">
-                                    <option value="null">Select a
+                                <select id="trust" v-model="trust" name="trust" class="form-control form-donation-input">
+                                    <option value="">Select a
                                         Trust*</option>
-                                    <option value="Sai Mayee Trust">Sai Mayee Trust
+                                    <option value="1">Sai Mayee Trust
                                     </option>
-                                    <option value="Sri Sai Meru Mathi Trust">Sri Sai
+                                    <option value="2">Sri Sai
                                         Meru Mathi Trust</option>
                                 </select>
                                 <div style="color:red;"></div>
                             </div>
-                            <div id="certification" class="mb-3" style="display: none;">
-                                <p><strong><span>Note:</span></strong><span id="certification_text"
-                                        style="color: #3c3489;"></span></p>
+                            <div 
+                                id="certification" 
+                                class="mb-3" 
+                                style="display: none;">
+                                <p>
+                                    <strong><span>Note:</span></strong>
+                                    <span 
+                                        id="certification_text"
+                                        style="color: #3c3489;"></span>
+                                </p>
                             </div>
-                            <div class="mb-3" id="pan_div" style="display: none;">
-                                <input type="text" id="pan" name="pan" class="form-control form-donation-input"
-                                    placeholder="PAN No.*" value="">
-                                <div style="color:red;"></div>
+                            <div v-if="trust==='1'" id="pan_div" class="mb-3">
+                                <ValidationProvider v-slot="{ classes, errors }" rules="required" name="pan">
+                                    <input 
+                                        id="pan" 
+                                        v-model="pan" 
+                                        type="text" 
+                                        name="pan" 
+                                        class="form-control form-donation-input"
+                                        placeholder="PAN No.*" value="">
+                                    <div :class="classes">{{ errors[0] }}</div>
+                                </ValidationProvider>
                             </div>
                             <div class="mb-3">
-                                <input type="text" id="amount" name="amount" class="form-control form-donation-input"
-                                    placeholder="Amount*" value="">
-                                <div style="color:red;"></div>
-                            </div>
-                            <div class="mb-3">
-
-                                <div class="BDC_CaptchaDiv" id="Captcha_CaptchaDiv" style="width:330px; height:60px;">
-                                    <input type="hidden" name="BDC_VCID_Captcha" id="BDC_VCID_Captcha"
-                                        value="f564c2449ce762190ce52c8e321e6da3" />
-                                    <input type="hidden" name="BDC_BackWorkaround_Captcha"
-                                        id="BDC_BackWorkaround_Captcha" value="0" />
-                                    <input type="hidden" name="BDC_Hs_Captcha" id="BDC_Hs_Captcha"
-                                        value="73c69dfff114cb169e3d0e6605881b8f40544f22" />
-                                    <input type="hidden" name="BDC_SP_Captcha" id="BDC_SP_Captcha" value="783218906" />
-                                </div>
-                                <div style="color:red;"></div>
-                                <input id="captcha" type="text" name="captcha" value=""
-                                    class="form-control form-donation-input  mt-3" required
-                                    placeholder="Enter the text from above image*" />
+                                <ValidationProvider v-slot="{ classes, errors }" rules="required" name="amount">
+                                    <input 
+                                        id="amount" 
+                                        v-model="amount" 
+                                        type="text" 
+                                        name="amount" 
+                                        class="form-control form-donation-input"
+                                        placeholder="Amount*" value="">
+                                    <div :class="classes">{{ errors[0] }}</div>
+                                </ValidationProvider>
                             </div>
                             <div class="mb-3 form-check">
-                                <input type="checkbox" id="check" name="check"
-                                    class="form-check-input  form-donation-checkbox">
-                                <label class="form-check-label" for="check">I accept the terms and conditions.</label>
-                                <div style="color:red;"></div>
+                                <ValidationProvider v-slot="{ classes, errors }" :rules="{ required: { allowFalse: false } }" name="terms and condition">
+                                    <input 
+                                        id="check"
+                                        v-model="accept" 
+                                        type="checkbox" 
+                                        class="form-check-input  form-donation-checkbox" 
+                                        name="check">
+                                    <label class="form-check-label" for="check">I accept the <NuxtLink
+                                            to="/terms-condition" target="_blank">terms and
+                                            conditions</NuxtLink>.</label>
+                                    <div :class="classes">{{ errors[0] }}</div>
+                                </ValidationProvider>
                             </div>
                             <div class="mb-3 text-center">
                                 <button type="submit" class="btn btn-primary  form-donation-submit">Donate Now</button>
                             </div>
                         </form>
+                        </ValidationObserver>
                     </div>
                 </div>
             </div>
@@ -132,6 +186,127 @@
 export default {
     name: "DonationPage",
     layout: "MainPageLayout",
+    data() {
+        return {
+            first_name: '',
+            last_name: '',
+            email: '',
+            phone: '',
+            amount: '',
+            pan: '',
+            city: '',
+            state: '',
+            trust: '',
+            accept: false,
+        }
+    },
+    head: {
+        script: [
+        { src: 'https://checkout.razorpay.com/v1/checkout.js' },
+        ],
+    },
+    methods: {
+        async formHandler() {
+            const loading = this.$loading({
+            lock: true,
+            fullscreen: true,
+            });
+            try {
+                const formData = new FormData;
+                formData.append('first_name', this.first_name);
+                formData.append('last_name', this.last_name);
+                formData.append('email', this.email);
+                formData.append('phone', this.phone);
+                formData.append('amount', this.amount);
+                formData.append('city', this.city);
+                formData.append('state', this.state);
+                formData.append('trust', this.trust);
+                const response = await this.$publicApi.post('/api/donation/create', formData); // eslint-disable-line
+                this.loadRazorpay({
+                    order_id:response.data.data.order_id,
+                    amount:response.data.data.amount,
+                    name:response.data.data.first_name+' '+response.data.data.last_name,
+                    email:response.data.data.email,
+                    phone:response.data.data.phone,
+                })
+                this.$toast.success('Data saved successfully')
+                this.first_name=''
+                this.last_name=''
+                this.email=''
+                this.phone=''
+                this.amount=''
+                this.pan=''
+                this.city=''
+                this.state=''
+                this.trust=''
+                this.accept=false
+                this.$refs.form.reset();
+            } catch (err) {
+                // console.log(err.response);// eslint-disable-line
+                this.$refs.form.setErrors({
+                    first_name: err?.response?.data?.errors?.first_name,
+                    last_name: err?.response?.data?.errors?.last_name,
+                    email: err?.response?.data?.errors?.email,
+                    phone: err?.response?.data?.errors?.phone,
+                    amount: err?.response?.data?.errors?.amount,
+                    pan: err?.response?.data?.errors?.pan,
+                    city: err?.response?.data?.errors?.city,
+                    state: err?.response?.data?.errors?.state,
+                    trust: err?.response?.data?.errors?.trust,
+                });
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+                
+            }finally{
+            loading.close()
+            }
+        },
+        loadRazorpay(data){
+            const options = {
+                key: this.$config.RAZORPAY_KEY_ID,
+                amount: data.amount,
+                currency: 'INR',
+                description: "Payment description",
+                order_id: data.order_id,
+                prefill: {
+                name: data.name,
+                email: data.email,
+                contact: data.phone
+                },
+                theme: {
+                color: "#000000" // Set your website theme color
+                },
+                handler: async (response) => {
+                // this.verifySignature(response);
+                // eslint-disable-next-line no-console
+                // console.log(response);
+                await this.verifyPayment(response)
+                }
+            };
+            // eslint-disable-next-line no-undef
+            const rzp = new Razorpay(options);
+            rzp.open();
+        },
+        async verifyPayment(data){
+            const loading = this.$loading({
+                lock: true,
+                fullscreen: true,
+            });
+            try {
+                const formData = new FormData;
+                formData.append('razorpay_order_id', data.razorpay_order_id);
+                formData.append('razorpay_payment_id', data.razorpay_payment_id);
+                formData.append('razorpay_signature', data.razorpay_signature);
+                const response = await this.$publicApi.post('/api/donation/verify-payment/', formData); // eslint-disable-line
+                this.$toast.success('Donation Successful')
+            } catch (err) {
+                if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+            } finally{
+                loading.close()
+            }
+        }
+    }
 }
 </script>
 
