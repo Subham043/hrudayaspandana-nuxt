@@ -148,10 +148,10 @@
                     <h4 class="lower-heading">Latest From Gallery</h4>
                 </div>
             </div>
-            <div class="gallery-box">
+            <viewer class="gallery-box" :images="galleryImages">
                 <a 
                     v-for="(item, i) in galleryImages" :key="i"
-                    :href="item.image"
+                    href="javascript:void(0)"
                     class="thumbnail img-thumbnail">
                     <img 
                         onContextMenu="return false;" 
@@ -160,7 +160,7 @@
                         :src="item.image" />
                 </a>
                 
-            </div>
+            </viewer>
             <div class="gallery-main-btn">
                 <NuxtLink to="/gallery/images">View More Images</NuxtLink>
             </div>
