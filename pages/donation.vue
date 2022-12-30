@@ -111,6 +111,7 @@
                                 </div>
                             </div>
                             <div class="mb-3">
+                                <ValidationProvider v-slot="{ classes, errors }" rules="required" name="trust">
                                 <select id="trust" v-model="trust" name="trust" class="form-control form-donation-input">
                                     <option value="">Select a
                                         Trust*</option>
@@ -119,7 +120,8 @@
                                     <option value="2">Sri Sai
                                         Meru Mathi Trust</option>
                                 </select>
-                                <div style="color:red;"></div>
+                                <div :class="classes">{{ errors[0] }}</div>
+                                </ValidationProvider>
                             </div>
                             <div 
                                 id="certification" 
@@ -221,6 +223,7 @@ export default {
                 formData.append('city', this.city);
                 formData.append('state', this.state);
                 formData.append('trust', this.trust);
+                formData.append('pan', this.pan);
                 const response = await this.$publicApi.post('/api/donation/create', formData); // eslint-disable-line
                 this.loadRazorpay({
                     order_id:response.data.data.order_id,

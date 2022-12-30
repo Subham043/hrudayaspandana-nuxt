@@ -101,16 +101,17 @@
                                 </div>
                             </div>
                             <div class="mb-3">
+                                <ValidationProvider v-slot="{ classes, errors }" rules="required" name="trust">
                                 <select id="trust" v-model="trust" name="trust" class="form-control form-hundi-input">
-                                    <!--<option value="null" >Select a-->
-                                    <!--    Trust*</option>-->
-                                    <!--<option value="Sai Mayee Trust"-->
-                                    <!--    >Sai Mayee Trust-->
-                                    <!--</option>-->
-                                    <option selected="selected" value="2">Sri Sai
+                                    <option value="">Select a
+                                        Trust*</option>
+                                    <option value="1">Sai Mayee Trust
+                                    </option>
+                                    <option value="2">Sri Sai
                                         Meru Mathi Trust</option>
                                 </select>
-                                <div style="color:red;"></div>
+                                <div :class="classes">{{ errors[0] }}</div>
+                                </ValidationProvider>
                             </div>
                             <div 
                             id="certification" 
@@ -123,14 +124,17 @@
                                     style="color: #3c3489;"></span>
                                 </p>
                             </div>
-                            <div id="pan_div" class="mb-3" style="display: none;">
-                                <input 
-                                id="pan" 
-                                type="text" 
-                                name="pan" 
-                                class="form-control form-hundi-input"
-                                    placeholder="PAN No.*" value="">
-                                <div style="color:red;"></div>
+                            <div v-if="trust==='1'" id="pan_div" class="mb-3">
+                                <ValidationProvider v-slot="{ classes, errors }" rules="required" name="pan">
+                                    <input 
+                                        id="pan" 
+                                        v-model="pan" 
+                                        type="text" 
+                                        name="pan" 
+                                        class="form-control form-hundi-input"
+                                        placeholder="PAN No.*" value="">
+                                    <div :class="classes">{{ errors[0] }}</div>
+                                </ValidationProvider>
                             </div>
                             <div class="mb-3">
                                     <ValidationProvider v-slot="{ classes, errors }" rules="required" name="amount">
@@ -202,7 +206,8 @@ export default {
             amount: '',
             city: '',
             state: '',
-            trust: '2',
+            pan: '',
+            trust: '',
             accept: false,
             dialogFormVisible: false,
         }
@@ -223,6 +228,7 @@ export default {
                 formData.append('city', this.city);
                 formData.append('state', this.state);
                 formData.append('trust', this.trust);
+                formData.append('pan', this.pan);
                 const response = await this.$publicApi.post('/api/e-hundi/create', formData); // eslint-disable-line
                 this.$toast.success('Data saved successfully')
                 this.first_name=''
@@ -233,6 +239,7 @@ export default {
                 this.city=''
                 this.state=''
                 this.trust=''
+                this.pan=''
                 this.accept=false
                 this.$refs.form.reset();
                 this.dialogFormVisible = true
@@ -247,6 +254,7 @@ export default {
                     city: err?.response?.data?.errors?.city,
                     state: err?.response?.data?.errors?.state,
                     trust: err?.response?.data?.errors?.trust,
+                    pan: err?.response?.data?.errors?.pan,
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
