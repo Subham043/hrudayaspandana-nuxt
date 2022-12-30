@@ -93,22 +93,22 @@ export default {
       login: '/auth/login',
       logout: '/auth/login',
       callback: '/auth/login',
-      home: '/dashboard'
+      home: '/'
     },
     localStorage: false, // REALLY not secure, so nah
     resetOnError: true, // kick the user if any error happens w/ the auth
     strategies: {
       local: {
-        scheme: 'refresh',
+        scheme: 'local',
         token: {
-          property: 'data.access_token',
+          property: 'access_token',
           global: true,
           required: true,
           type: 'Bearer',
           name: 'Authorization'
         },
         refreshToken: {
-          property: 'data.refresh_token',
+          property: 'refresh_token',
           data: 'refresh_token',
           maxAge: 24 * 60 * 60 * 1000,
           required: true,
@@ -116,14 +116,14 @@ export default {
           name: 'Authorization'
         },
         user: {
-          property: 'data.user',
+          property: 'user',
           autoFetch: true
         },
         endpoints: {
-          login: { url: '/auth/sign-in', method: 'post' },
-          logout: { url: '/auth/logout', method: 'get' },
-          refresh: { url: '/auth/refresh-token', method: 'get' },
-          user: { url: '/auth/profile', method: 'get' }
+          login: { url: '/api/auth/login', method: 'post' },
+          logout: { url: '/api/auth/logout', method: 'get' },
+          refresh: { url: '/api/auth/refresh-token', method: 'get' },
+          user: { url: '/api/auth/profile', method: 'get' }
         },
         tokenRequired: true,
         tokenType: 'JWT',

@@ -1,13 +1,13 @@
 <template>
     <div>
-        <HeroComponent title="Forgot Password" />
+        <HeroComponent title="Verify User" />
 
         <section class="hundi donation-page login-page">
             <div class="wrapper">
                 <div class="hundi-row login-main-row">
                     <div class="col-lg-5 col-md-6 col-sm-12">
                         <div class="heading">
-                            <h4 class="lower-heading">Forgot Password</h4>
+                            <h4 class="lower-heading">Verify User</h4>
                         </div>
                         <ValidationObserver ref="form" v-slot="{ handleSubmit }">
                         <form 
@@ -17,20 +17,23 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="mb-3">
-                                        <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
+                                        <ValidationProvider v-slot="{ classes, errors }" rules="required" name="otp">
                                             <input 
-                                                id="email" 
-                                                v-model="email" 
-                                                type="email" 
-                                                name="email" 
+                                                id="otp" 
+                                                v-model="otp" 
+                                                type="text" 
+                                                name="otp" 
                                                 autocomplete="off"
                                                 class="form-control form-hundi-input" 
-                                                placeholder="Email*" 
+                                                placeholder="OTP*" 
                                                 value="">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="mb-3 login-row" style="justify-content:flex-end;">
+                                <button type="button" class="forgot-password-link" style="background:transparent;border:none;" @click="resendOTP">Resend OTP</button>
                             </div>
                             <div class="mb-3 text-center">
                                 <button 
@@ -49,13 +52,16 @@
 
 <script>
 export default {
-    name: "ForgotPasswordPage",
+    name: "VerifyUserPage",
     layout: "MainPageLayout",
     middleware: ['Unauthenticated'],
     data() {
         return {
-            email: '',
+            otp: '',
         }
+    },
+    beforeMount(){
+        this.checkId()
     },
     mounted(){
         // eslint-disable-next-line nuxt/no-env-in-hooks
@@ -70,14 +76,41 @@ export default {
           fullscreen: true,
         });
         try {
-            const response = await this.$publicApi.post('/api/auth/forgot-password', {email:this.email}); // eslint-disable-line
-            this.$toast.info('We have shared you an otp via email. kindly enter that in order to reset your password.')
-            this.$router.push('/auth/reset-password/'+response.data.user.id);
+            const response = await this.$publicApi.post('/api/auth/verify-user/'+this.$route.params.id, {otp:this.otp}); // eslint-disable-line
+            await this.$auth.setUserToken(response.data.access_token);
+            this.$toast.success('Email verified successfully.');
         } catch (err) {
             // console.log(err.response);// eslint-disable-line
             this.$refs.form.setErrors({
-              email: err?.response?.data?.errors?.email,
+              otp: err?.response?.data?.errors?.otp,
             });
+            if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+            if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+            
+        }finally{
+          loading.close()
+        }
+    },
+    checkId(){
+        const loading = this.$loading({
+        lock: true,
+        fullscreen: true,
+        });
+        if(!this.$route.params.id){
+            this.$toast.error('Invalid ID')
+            this.$router.push('/auth/login');
+        }
+        loading.close()
+    },
+    async resendOTP(){
+        const loading = this.$loading({
+          lock: true,
+          fullscreen: true,
+        });
+        try {
+            const response = await this.$publicApi.get('/api/auth/resend-otp/'+this.$route.params.id, {otp:this.otp}); // eslint-disable-line
+            this.$toast.success('OTP sent successfully.');
+        } catch (err) {
             if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
             if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
             
