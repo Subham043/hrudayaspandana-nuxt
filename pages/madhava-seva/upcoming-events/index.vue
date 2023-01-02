@@ -6,7 +6,7 @@
         <div class="wrapper">
             <div class="heading">
                 <p class="upper-heading">Events</p>
-                <h4 class="lower-heading">Past Events</h4>
+                <h4 class="lower-heading">Upcoming Events</h4>
             </div>
             <div class="events-page-main-div">
                 <div class="events-page-inner-div">
@@ -23,9 +23,9 @@
                         </div>
                         <div class="content-col">
                             <h6> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}  - {{$dateFns.format(new Date(item.edate), 'dd MMM yyyy')}} 
-                                </h6>
+                                 </h6>
                             <h4 style="text-transform: uppercase"><NuxtLink
-                                    :to="`/madhava-seva/past-events/${item.id}`">{{ item.name }}</NuxtLink>
+                                    :to="`/madhava-seva/upcoming-events/${item.id}`">{{ item.name }}</NuxtLink>
                             </h4>
                             <p>On the last Monday of the Kartika Masam, team Hrudaya Spandana performed Maha Rudrabhishekam in Sai Durga Temple, Lepakshi in the divine presence of our Lord.<br>...</p>
                         </div>
@@ -37,7 +37,7 @@
                         </div>
                     </div>
 
-
+                    
                 </div>
                 <div class="gallery-main-btn">
                     <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
@@ -53,14 +53,14 @@
 
 <script>
 export default {
-    name: "MadhavaPastEventsPage",
+    name: "MadhavaUpcomingEventsPage",
     layout: "MainPageLayout",
     data() {
         return {
             count:1,
             tableData: [],
             currentPage: 1,
-            status: this.$route.query.status ? this.$route.query.status : 1,
+            status: this.$route.query.status ? this.$route.query.status : 0,
             filter: this.$route.query.filter ? this.$route.query.filter : 'madhava-seva'
         }
     },
@@ -101,7 +101,7 @@ export default {
         },
         handlePageChnage(){
             this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
-            this.getTableData(this.$route.query.page ? Number(this.$route.query.page) : 1, this.$route.query.filter ? this.$route.query.filter : 'madhava-seva', this.$route.query.status ? this.$route.query.status : 1);
+            this.getTableData(this.$route.query.page ? Number(this.$route.query.page) : 1, this.$route.query.filter ? this.$route.query.filter : 'madhava-seva', this.$route.query.status ? this.$route.query.status : 0);
             if(process.client){
                 this.$scrollTo('#__nuxt', 0, {force: true})
             }

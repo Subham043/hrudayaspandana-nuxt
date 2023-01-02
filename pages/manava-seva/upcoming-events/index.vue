@@ -1,47 +1,47 @@
 <template>
     <div>
-        <HeroComponent title="Madhava Seva" />
+        <HeroComponent title="Manava Seva" />
 
         <section class="events-page">
         <div class="wrapper">
             <div class="heading">
                 <p class="upper-heading">Events</p>
-                <h4 class="lower-heading">Past Events</h4>
+                <h4 class="lower-heading">Upcoming Events</h4>
             </div>
             <div class="events-page-main-div">
                 <div class="events-page-inner-div">
 
-                    <div class="time-div">
+                <div class="time-div">
 
-                        <div class="line"></div>
-                    </div>
-
-                    <div v-for="(item, i) in tableData" :key="i" class="events-page-row">
-                        <div class="date-col">
-                            <p>{{$dateFns.format(new Date(item.sdate), 'EE')}}</p>
-                            <h6>{{$dateFns.format(new Date(item.sdate), 'dd')}}</h6>
-                        </div>
-                        <div class="content-col">
-                            <h6> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}  - {{$dateFns.format(new Date(item.edate), 'dd MMM yyyy')}} 
-                                </h6>
-                            <h4 style="text-transform: uppercase"><NuxtLink
-                                    :to="`/madhava-seva/past-events/${item.id}`">{{ item.name }}</NuxtLink>
-                            </h4>
-                            <p>On the last Monday of the Kartika Masam, team Hrudaya Spandana performed Maha Rudrabhishekam in Sai Durga Temple, Lepakshi in the divine presence of our Lord.<br>...</p>
-                        </div>
-                        <div class="img-col">
-                            <img 
-                                onContextMenu="return false;" 
-                                loading="lazy"
-                                :src="item.image" alt="">
-                        </div>
-                    </div>
-
-
+                    <div class="line"></div>
                 </div>
-                <div class="gallery-main-btn">
-                    <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
+
+                <div v-for="(item, i) in tableData" :key="i" class="events-page-row">
+                    <div class="date-col">
+                        <p>{{$dateFns.format(new Date(item.sdate), 'EE')}}</p>
+                        <h6>{{$dateFns.format(new Date(item.sdate), 'dd')}}</h6>
+                    </div>
+                    <div class="content-col">
+                        <h6> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}  - {{$dateFns.format(new Date(item.edate), 'dd MMM yyyy')}} 
+                            </h6>
+                        <h4 style="text-transform: uppercase"><NuxtLink
+                                :to="`/manava-seva/upcoming-events/${item.id}`">{{ item.name }}</NuxtLink>
+                        </h4>
+                        <p>On the last Monday of the Kartika Masam, team Hrudaya Spandana performed Maha Rudrabhishekam in Sai Durga Temple, Lepakshi in the divine presence of our Lord.<br>...</p>
+                    </div>
+                    <div class="img-col">
+                        <img 
+                            onContextMenu="return false;" 
+                            loading="lazy"
+                            :src="item.image" alt="">
+                    </div>
                 </div>
+
+
+            </div>
+            <div class="gallery-main-btn">
+                <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
+            </div>
 
 
             </div>
@@ -53,15 +53,15 @@
 
 <script>
 export default {
-    name: "MadhavaPastEventsPage",
+    name: "ManavaUpcomingEventsPage",
     layout: "MainPageLayout",
     data() {
         return {
             count:1,
             tableData: [],
             currentPage: 1,
-            status: this.$route.query.status ? this.$route.query.status : 1,
-            filter: this.$route.query.filter ? this.$route.query.filter : 'madhava-seva'
+            status: this.$route.query.status ? this.$route.query.status : 0,
+            filter: this.$route.query.filter ? this.$route.query.filter : 'manava-seva'
         }
     },
     watch: {
@@ -77,7 +77,7 @@ export default {
         this.handlePageChnage();
     },
     methods: {
-        async getTableData(page=0,filter='madhava-seva',status=1) {
+        async getTableData(page=0,filter='manava-seva',status=1) {
             const loading = this.$loading({
                 lock: true,
                 fullscreen: true,
@@ -101,7 +101,7 @@ export default {
         },
         handlePageChnage(){
             this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
-            this.getTableData(this.$route.query.page ? Number(this.$route.query.page) : 1, this.$route.query.filter ? this.$route.query.filter : 'madhava-seva', this.$route.query.status ? this.$route.query.status : 1);
+            this.getTableData(this.$route.query.page ? Number(this.$route.query.page) : 1, this.$route.query.filter ? this.$route.query.filter : 'manava-seva', this.$route.query.status ? this.$route.query.status : 0);
             if(process.client){
                 this.$scrollTo('#__nuxt', 0, {force: true})
             }
