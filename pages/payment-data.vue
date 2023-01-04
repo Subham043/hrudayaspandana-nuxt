@@ -67,6 +67,14 @@
                                 circle
                                 ></el-button>
                                 </el-popconfirm>
+                                <el-button
+                                v-if="scope.row.status===1"
+                                slot="reference" 
+                                type="success" 
+                                icon="el-icon-download"  
+                                circle
+                                @click="downloadCertificate(scope.row.id)"
+                                ></el-button>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -188,6 +196,22 @@ export default {
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
             } finally{
+                loading.close()
+            }
+        },
+        async downloadCertificate(id){
+            const loading = this.$loading({
+                lock: true,
+                fullscreen: true,
+            });
+            try {
+                // eslint-disable-next-line no-unused-vars
+                const response = await this.$privateApi.get('/api/donation/certificate/'+id);
+                window.open(response.data.data, '_blank');
+            } catch (err) {
+                if (err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
+                if (err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+            } finally {
                 loading.close()
             }
         }
