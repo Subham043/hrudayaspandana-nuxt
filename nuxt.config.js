@@ -93,7 +93,7 @@ export default {
       login: '/auth/login',
       logout: '/auth/login',
       callback: '/auth/login',
-      home: '/'
+      home: '/payment-data'
     },
     localStorage: false, // REALLY not secure, so nah
     resetOnError: true, // kick the user if any error happens w/ the auth
