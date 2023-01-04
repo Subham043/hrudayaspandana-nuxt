@@ -13,14 +13,17 @@
 							</li>
 							<li class="footer-link">
 								Hrudaya Spandana<br>
-								<a href="https://goo.gl/maps/LfJa1x3MQGusDVB7A" class="footer-link-href"
+								<a 
+									href="https://goo.gl/maps/LfJa1x3MQGusDVB7A" 
+									class="footer-link-href"
 									target="_blank"> E601, Aishwarya Lake View Residency,<br>
 									6th Cross, Kaggadasapura,<br>
 									C V Raman Nagar,<br> Bangalore - 560093
 									India &nbsp;&nbsp;<i class="fas fa-map-marker-alt"></i></a>
 							</li>
 							<li class="footer-link">
-								<a href="mailto:info@hrudayaspandana.org"
+								<a 
+									href="mailto:info@hrudayaspandana.org"
 									class="footer-link-href">info@hrudayaspandana.org</a>
 							</li>
 							<li class="footer-link">
@@ -74,23 +77,28 @@
 				<div class="wrapper">
 					<ul class="footer-link-ul-social">
 						<li class="footer-link-social">
-							<a href="https://www.facebook.com/Hrudaya-Spandana-112948621170832" class="footer-link-href"
+							<a 
+								href="https://www.facebook.com/Hrudaya-Spandana-112948621170832" class="footer-link-href"
 								target="_blank"><i class="fab fa-facebook-f"></i></a>
 						</li>
 						<li class="footer-link-social">
-							<a href="https://www.instagram.com/hrudaya.spandana/" target="_blank"
+							<a 
+								href="https://www.instagram.com/hrudaya.spandana/" target="_blank"
 								class="footer-link-href"><i class="fab fa-instagram"></i></a>
 						</li>
 						<li class="footer-link-social">
-							<a href="https://www.linkedin.com/company/77675080/admin/" target="_blank"
+							<a 
+								href="https://www.linkedin.com/company/77675080/admin/" target="_blank"
 								class="footer-link-href"><i class="fab fa-linkedin-in"></i></a>
 						</li>
 						<li class="footer-link-social">
-							<a href="https://www.youtube.com/channel/UCVJc6AiIzMPooy-9JdirJOg" target="_blank"
+							<a 
+								href="https://www.youtube.com/channel/UCVJc6AiIzMPooy-9JdirJOg" target="_blank"
 								class="footer-link-href"><i class="fab fa-youtube"></i></a>
 						</li>
 						<li class="footer-link-social">
-							<a href="https://twitter.com/Hrudaya_Spandan" class="footer-link-href" target="_blank"><i
+							<a 
+								href="https://twitter.com/Hrudaya_Spandan" class="footer-link-href" target="_blank"><i
 									class="fab fa-twitter"></i></a>
 						</li>
 
@@ -106,8 +114,10 @@
 			</div>
 		</footer>
 		<div style="position: relative;width:100%;">
-			<button id="scrollTopBtn" onclick="topFunction()" style="display:none;"><i
-					class="fas fa-chevron-up"></i></button>
+			<button id="scrollTopButton" style="display:none" class="scrollTopBtn" @click="scrollTop">
+				<i
+					class="fas fa-chevron-up"></i>
+			</button>
 		</div>
 	</div>
 </template>
@@ -115,5 +125,37 @@
 <script>
 export default {
 	name: 'FooterComponent',
+	methods: {
+		scrollTop() {
+			if(process.client){
+				this.$scrollTo('#__nuxt', 0, {force: true})
+			}
+		}
+	}
 }
 </script>
+
+<style scoped>
+.scrollTopBtn {
+    position: fixed;
+    font-size: 30px;
+    display: grid;
+    place-items: center;
+    color: #ffaa49;
+    bottom: 20px;
+    right: 20px;
+    z-index: 100000000;
+    background: #3c3489;
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    box-shadow: 1px 1px 1px 1px #818181;
+    transition: 0.3s all linear;
+}
+
+.scrollTopBtn:hover {
+    transform: scale(1.1, 1.1);
+}
+</style>
