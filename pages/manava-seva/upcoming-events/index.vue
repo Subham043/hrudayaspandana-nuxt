@@ -16,24 +16,23 @@
                     <div class="line"></div>
                 </div>
 
-                <div v-for="(item, i) in tableData" :key="i" class="events-page-row">
-                    <div class="date-col">
-                        <p>{{$dateFns.format(new Date(item.sdate), 'EE')}}</p>
-                        <h6>{{$dateFns.format(new Date(item.sdate), 'dd')}}</h6>
-                    </div>
-                    <div class="content-col">
-                        <h6> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}  - {{$dateFns.format(new Date(item.edate), 'dd MMM yyyy')}} 
-                            </h6>
-                        <h4 style="text-transform: uppercase"><NuxtLink
-                                :to="`/manava-seva/upcoming-events/${item.id}`">{{ item.name }}</NuxtLink>
-                        </h4>
-                        <p>On the last Monday of the Kartika Masam, team Hrudaya Spandana performed Maha Rudrabhishekam in Sai Durga Temple, Lepakshi in the divine presence of our Lord.<br>...</p>
-                    </div>
-                    <div class="img-col">
-                        <img 
-                            onContextMenu="return false;" 
-                            loading="lazy"
-                            :src="item.image" alt="">
+                <div class="row">
+                    <div v-for="(item, i) in tableData" :key="i" class="col-lg-4 col-md-6 col-sm-12 event-col">
+                        <div class="event-col-inner">
+                            <img 
+                                onContextMenu="return false;" 
+                                loading="lazy"
+                                class="img-thumb"
+                                :src="item.image"
+                                alt="">
+                            <div class="event-text">
+                                <h4 style="text-transform: uppercase">
+                                    <img src="/images/om.png" /><NuxtLink :to="`/manava-seva/upcoming-events/${item.id}`">{{ item.name }}</NuxtLink>
+                                </h4>
+                                <h6><i class="el-icon-time"></i> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}  - {{$dateFns.format(new Date(item.edate), 'dd MMM yyyy')}} </h6>
+                                <NuxtLink :to="`/manava-seva/upcoming-events/${item.id}`" class="event-link">Learn More <i class="el-icon-right"></i></NuxtLink>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

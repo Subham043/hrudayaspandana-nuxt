@@ -16,7 +16,7 @@
                         <div class="line"></div>
                     </div>
 
-                    <div v-for="(item, i) in tableData" :key="i" class="events-page-row">
+                    <!-- <div v-for="(item, i) in tableData" :key="i" class="events-page-row">
                         <div class="date-col">
                             <p>{{$dateFns.format(new Date(item.sdate), 'EE')}}</p>
                             <h6>{{$dateFns.format(new Date(item.sdate), 'dd')}}</h6>
@@ -34,6 +34,26 @@
                                 onContextMenu="return false;" 
                                 loading="lazy"
                                 :src="item.image" alt="">
+                        </div>
+                    </div> -->
+
+                    <div class="row">
+                        <div v-for="(item, i) in tableData" :key="i" class="col-lg-4 col-md-6 col-sm-12 event-col">
+                            <div class="event-col-inner">
+                                <img 
+                                    onContextMenu="return false;" 
+                                    loading="lazy"
+                                    class="img-thumb"
+                                    :src="item.image"
+                                    alt="">
+                                <div class="event-text">
+                                    <h4 style="text-transform: uppercase">
+                                        <img src="/images/om.png" /><NuxtLink :to="`/madhava-seva/past-events/${item.id}`">{{ item.name }}</NuxtLink>
+                                    </h4>
+                                    <h6><i class="el-icon-time"></i> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}  - {{$dateFns.format(new Date(item.edate), 'dd MMM yyyy')}} </h6>
+                                    <NuxtLink :to="`/madhava-seva/past-events/${item.id}`" class="event-link">Learn More <i class="el-icon-right"></i></NuxtLink>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
