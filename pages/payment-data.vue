@@ -44,13 +44,13 @@
                         </el-table-column>
                         <el-table-column fixed="right" label="Operations" width="120">
                             <template slot-scope="scope">
-                                <el-popconfirm
-                                confirm-button-text='OK'
-                                cancel-button-text='No, Thanks'
-                                icon="el-icon-info"
-                                icon-color="red"
-                                title="Do you want to make payment?"
-                                @confirm="makePayment({
+                                <el-button
+                                v-if="scope.row.status===0"
+                                slot="reference" 
+                                type="primary" 
+                                icon="el-icon-wallet"  
+                                circle
+                                @click="makePayment({
                                     order_id:scope.row.order_id, 
                                     first_name: scope.row.first_name, 
                                     last_name: scope.row.last_name, 
@@ -58,15 +58,7 @@
                                     phone: scope.row.phone,
                                     amount: scope.row.amount,
                                 })"
-                                >
-                                <el-button
-                                v-if="scope.row.status===0"
-                                slot="reference" 
-                                type="primary" 
-                                icon="el-icon-wallet"  
-                                circle
                                 ></el-button>
-                                </el-popconfirm>
                                 <el-button
                                 v-if="scope.row.status===1"
                                 slot="reference" 
