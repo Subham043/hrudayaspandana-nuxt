@@ -271,13 +271,14 @@ export default {
                 currency: 'INR',
                 description: "Payment description",
                 order_id: data.order_id,
+                image: '/images/logo.png',
                 prefill: {
                 name: data.name,
                 email: data.email,
                 contact: data.phone
                 },
                 theme: {
-                color: "#000000" // Set your website theme color
+                color: "#ffaa49" // Set your website theme color
                 },
                 handler: async (response) => {
                 // this.verifySignature(response);
