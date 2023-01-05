@@ -80,6 +80,10 @@ export default {
             });
             if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
             if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
+            if(err?.response?.data?.error_code && err?.response?.data?.error_code==="AUTH_ERROR_0"){
+                this.$toast.info('We have shared you an otp via email. kindly enter that in order to verify your email.')
+                this.$router.push('/auth/verify-user/'+err?.response?.data?.error_id);
+            }
             
         }finally{
           loading.close()

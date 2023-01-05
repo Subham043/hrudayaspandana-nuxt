@@ -37,7 +37,7 @@ export default {
 if(process.client){
   document.addEventListener("DOMContentLoaded", function() {
       window.addEventListener('scroll', function() {
-          if (window.scrollY > 550) {
+          if (window.scrollY > 350) {
               document.getElementById('navbar').classList.add('fixed-top');
               const navbarHeight = document.querySelector('#navbar').offsetHeight;
               document.body.style.paddingTop = navbarHeight + 'px';
