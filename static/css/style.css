@@ -2084,3 +2084,28 @@ ul ul ul {
     margin-top: 6px;
     font-size: 1.4rem;
 }
+
+.accordion-button:not(.collapsed)::after{
+    background-image: none;
+}
+
+.el-collapse-item{
+    border: 1px solid #ffaa49;
+}
+
+.el-collapse-item__header{
+    background-color: #ffaa49;
+    /* border-bottom:  1px solid transparent; */
+}
+
+.accordion-header{
+    width: 100%;
+}
+
+.el-collapse-item__content{
+    padding-bottom: 0;
+}
+
+.accordion-button::after{
+    background-image: none;
+}
