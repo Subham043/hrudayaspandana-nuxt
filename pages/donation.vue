@@ -284,7 +284,7 @@ export default {
                 // this.verifySignature(response);
                 // eslint-disable-next-line no-console
                 // console.log(response);
-                await this.verifyPayment(response)
+                    await this.verifyPayment(response)
                 }
             };
             // eslint-disable-next-line no-undef
