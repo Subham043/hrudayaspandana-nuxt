@@ -25,7 +25,6 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     '@/plugins/image_viewer',
-    '@/plugins/tree',
     '~/plugins/validation-provider.js',
     '~/plugins/publicApi.js',
     '~/plugins/privateApi.js',

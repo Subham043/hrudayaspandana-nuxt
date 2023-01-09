@@ -11,17 +11,7 @@
                             <h4 class="lower-heading">Leadership Team</h4>
                         </div>
                         <div class="chart-container" style="margin-top:30px">
-                            <organization-chart :datasource="ds">
-                                <template slot-scope="{ nodeData }">
-                                    <div :class="['node-box',  nodeData.id == '1' ? 'parent' : '']">
-                                        <div class="node-title">{{nodeData.title}}</div>
-                                        <div class="node-content">
-                                        <img width="25%" :src="nodeData.image">
-                                        <div>{{nodeData.name}}</div>
-                                        </div>
-                                    </div>
-                                </template>
-                            </organization-chart>
+                            <div id="tree" ref="tree"></div>
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col">
@@ -69,6 +59,7 @@
 </template>
 
 <script>
+import OrgChart from '@balkangraph/orgchart.js'
 export default {
     name: "LeadershipPage",
     layout: "MainPageLayout",
@@ -182,70 +173,33 @@ export default {
                     },
                 ],
             },
-            ds: {
-                id: "1",
-                name: "",
-                title: "Hrudayaspandana",
-                image: "/images/logo.webp",
-                children: [
-                { 
-                    id: "2", 
-                    name: "", 
-                    title: "Trust Development Specialist",
-                    image: "/images/logo.webp",
-                    children: [
-                    { id: "6", name: "", title: "Sivaumar", image: "/images/leader/leader14.webp" },
-                    ]
-                },
-                {
-                    id: "3",
-                    name: "",
-                    title: "Chief Financial Advisor",
-                    image: "/images/logo.webp",
-                    children: [
-                    { id: "4", name: "", title: "Sailesh", image: "/images/leader/leader13.jpeg" },
-                    ]
-                },
-                { 
-                    id: "8", 
-                    name: "", 
-                    title: "Advisory Committee",
-                    image: "/images/logo.webp",
-                    children: [
-                    { id: "6", name: "", title: "M Venkateswarulu", image: "/images/leader/leader9.jpg" },
-                    { id: "7", name: "", title: "Batchu Suresh", image: "/images/leader/leader8.jpg" },
-                    { id: "8", name: "", title: "Smitha Sailesh", image: "/images/leader/leader6.jpeg" },
-                    { id: "9", name: "", title: "Purnima Kurnool", image: "/images/leader/leader7.webp" },
-                    { id: "10", name: "", title: "Vijaya V", image: "/images/leader/leader15.webp" },
-                    { id: "11", name: "", title: "Shrinivas Sureban", image: "/images/leader/leader16.png" },
-                    { id: "12", name: "", title: "Venu Madhav P", image: "/images/leader/leader10.JPG" },
-                    { id: "13", name: "", title: "A Nagasree", image: "/images/leader/leader12.webp" },
-                    ]
-                },
-                {
-                    id: "9",
-                    name: "",
-                    title: "Sai Mayee Trust",
-                    image: "/images/logo.webp",
-                    children: [
-                    { id: "6", name: "", title: "Saira H", image: "/images/leader/leader1.jpg"},
-                    { id: "7", name: "", title: "PN Sreenivas", image: "/images/leader/leader2.jpg" }
-                    ]
-                },
-                {
-                    id: "10",
-                    name: "",
-                    title: "Sri Sai Meru Mathi Trust",
-                    image: "/images/logo.webp",
-                    children: [
-                    { id: "6", name: "", title: "Itta Raghunandan", image: "/images/leader/leader4.jpg" },
-                    { id: "7", name: "", title: "Jagadish K", image: "/images/leader/leader5.jpeg" },
-                    { id: "8", name: "", title: "Prasad AVSS", image: "/images/leader/leader11.jpg" }
-                    ]
-                }
-                ]
-            }
+            nodes: [
+                { id: 1, name: "Hrudayaspandana", title: "Trust", img: "/images/round-logo.webp" },
+                { id: 2, pid: 1, name: "Trust Development Specialist", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
+                { id: 3, pid: 1, name: "Chief Financial Advisor", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
+                { id: 4, pid: 1, name: "Advisory Committee", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels2"] },
+                { id: 5, pid: 1, name: "Sai Mayee Trust", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
+                { id: 6, pid: 1, name: "Sri Sai Meru Mathi Trust", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels2"] },
+                { id: 7, pid: 2, name: "Sivaumar", title: "Member", img: "/images/leader/leader14.webp" },
+                { id: 8, pid: 3, name: "Sailesh", title: "Member", img: "/images/leader/leader13.jpeg" },
+                { id: 9, pid: 4, name: "M Venkateswarulu", title: "Member", img: "/images/leader/leader9.jpg" },
+                { id: 10, pid: 4, name: "Batchu Suresh", title: "Member", img: "/images/leader/leader8.jpg" },
+                { id: 11, pid: 4, name: "Smitha Sailesh", title: "Member", img: "/images/leader/leader6.jpeg" },
+                { id: 12, pid: 4, name: "Purnima Kurnool", title: "Member", img: "/images/leader/leader7.webp" },
+                { id: 13, pid: 4, name: "Vijaya V", title: "Member", img: "/images/leader/leader15.webp" },
+                { id: 14, pid: 4, name: "Shrinivas Sureban", title: "Member", img: "/images/leader/leader16.png" },
+                { id: 15, pid: 4, name: "Venu Madhav P", title: "Member", img: "/images/leader/leader10.JPG" },
+                { id: 16, pid: 4, name: "A Nagasree", title: "Member", img: "/images/leader/leader12.webp" },
+                { id: 17, pid: 5, name: "Saira H", title: "Member", img: "/images/leader/leader1.jpg" },
+                { id: 18, pid: 5, name: "PN Sreenivas", title: "Member", img: "/images/leader/leader2.jpg" },
+                { id: 19, pid: 6, name: "Itta Raghunandan", title: "Member", img: "/images/leader/leader4.jpg" },
+                { id: 20, pid: 6, name: "Jagadish K", title: "Member", img: "/images/leader/leader5.jpeg" },
+                { id: 21, pid: 6, name: "Prasad AVSS", title: "Member", img: "/images/leader/leader11.jpg" },
+            ]
         }
+    },
+    mounted(){
+        this.mytree(this.$refs.tree, this.nodes)
     },
     methods: {
         nextNavClick() {
@@ -254,6 +208,38 @@ export default {
         prevNavClick() {
             this.$refs.slickTestimonial.prev()
         },
+        mytree: function(domEl, x) {
+            this.chart = new OrgChart (domEl, {
+                mouseScrool: OrgChart.action.scroll,
+                layout: OrgChart.tree,
+                enableSearch: false,
+                template: "ula",
+                scaleInitial: 0.6,
+                // collapse: {
+                //     level: 2,
+                //     allChildren: true
+                // },
+                tags: {
+                    "subLevels0": {
+                        subLevels: 0
+                    },
+                    "subLevels1": {
+                        subLevels: 1
+                    },
+                    "subLevels2": {
+                        subLevels: 2
+                    },
+                    "subLevels3": {
+                        subLevels: 3
+                    }
+                },
+                nodes: x,
+                nodeBinding: {
+                    field_0: "name",
+                    img_0: "img"
+                }
+            });
+        }
     }
 }
 </script>
