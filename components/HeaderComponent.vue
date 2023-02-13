@@ -9,7 +9,7 @@
 					</NuxtLink>
 				</div>
 				<button id="nav_menu_btn" menu="close" @click="showNav = !showNav">
-					<i :class="showNav ? 'fas fas-times' : 'fas fa-bars'"></i>
+					<i :class="showNav ? 'fas fa-times' : 'fas fa-bars'"></i>
 				</button>
 				<div :class="showNav ? 'nav-menu nav-menu-ham' : 'nav-menu'" id="nav_menu">
 					<ul class="menu-row" id="responsive-menu">
