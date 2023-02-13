@@ -108,6 +108,7 @@ export default {
     text-transform: capitalize;
     font-size: 20px;
     display: inline-block;
+    margin: 5px;
 }
 
 .blogs .blogs-main .blog-main-row .blog-main-single .blog-text-top, .blog-link{

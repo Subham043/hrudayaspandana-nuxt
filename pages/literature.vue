@@ -10,7 +10,7 @@
                 </div>
 
                 <viewer class="row literature-row" :images="tableData">
-    
+
                     <div v-for="(item, i) in tableData" :key="i" class="col-lg-4 col-md-6 col-sm-12 col-literature">
                         <div class="literature-div">
                             <img oncontextmenu="return false;" class="thumbnail img-thumbnail" loading="lazy" :src="item.image" alt="">
@@ -18,11 +18,11 @@
                             <a target="_blank" :href="item.file">{{ item.is_pdf ? 'View PDF' : 'Buy Now' }}</a>
                         </div>
                     </div>
-    
+
                 </viewer>
             </div>
             <div class="gallery-main-btn">
-                <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
+                <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
             </div>
         </section>
     </div>

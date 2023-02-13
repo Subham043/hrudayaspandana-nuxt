@@ -8,10 +8,10 @@
 							alt="" class="logo-img">
 					</NuxtLink>
 				</div>
-				<button id="nav_menu_btn" menu="close">
-					<i class="fas fa-bars"></i>
+				<button id="nav_menu_btn" menu="close" @click="showNav = !showNav">
+					<i :class="showNav ? 'fas fas-times' : 'fas fa-bars'"></i>
 				</button>
-				<div class="nav-menu" id="nav_menu">
+				<div :class="showNav ? 'nav-menu nav-menu-ham' : 'nav-menu'" id="nav_menu">
 					<ul class="menu-row" id="responsive-menu">
 						<li class="menu-li parent"><a class="menu-links " href="#">About Us</a>
 							<ul class="child">
@@ -120,5 +120,18 @@
 <script>
 export default {
 	name: 'HeaderComponent',
+  data() {
+      return {
+          showNav : false,
+      }
+  },
 }
 </script>
+
+<style scoped>
+nav .row .nav-menu-ham{
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+</style>

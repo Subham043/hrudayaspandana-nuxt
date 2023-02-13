@@ -10,17 +10,17 @@
             </div>
 
             <div id="gallery-menu">
-                <a 
+                <a
                 href="javascript:void(0)"
                 :class="filter==='all' ? 'liquo-active' : ''"
                 @click="handleFilterField('all')"
                 >All</a>
-                <a 
+                <a
                 href="javascript:void(0)"
                 :class="filter==='Madhava Seva' ? 'liquo-active' : ''"
                 @click="handleFilterField('Madhava Seva')"
                 >Madhava Seva</a>
-                <a 
+                <a
                 href="javascript:void(0)"
                 :class="filter==='Manava Seva' ? 'liquo-active' : ''"
                 @click="handleFilterField('Manava Seva')"
@@ -30,34 +30,34 @@
         </div>
         <div class="gallery-box">
             <ul id="gallery">
-                
+
                 <li  v-for="(item, i) in tableData" :key="i">
-                        <a 
+                        <a
                             href="#!"
-                            class="thumbnail img-thumbnail" 
-                            style="width:100%;height:350px;" 
+                            class="thumbnail img-thumbnail"
+                            style="width:100%;height:350px;"
                             data-liquo="Madhava Seva">
-                            <iframe 
-                            id="iframeVdo" 
-                            loading="lazy" 
-                            :src="item.video" 
+                            <iframe
+                            id="iframeVdo"
+                            loading="lazy"
+                            :src="item.video"
                             title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen 
+                            allowfullscreen
                             style="width: 100%; height:100%"></iframe>
-                            
+
                         </a>
                 </li>
-                
+
             </ul>
-            
+
         </div>
         <div class="gallery-main-btn">
-            <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
+            <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
         </div>
     </section>
-        
+
     </div>
 </template>
 
@@ -118,6 +118,7 @@ export default {
         },
         handleFilterField(filter){
             this.filter = filter;
+            this.currentPage = 1;
             this.$router.push({query:{page:this.currentPage,filter:this.filter}});
         }
     }
@@ -303,7 +304,7 @@ export default {
         border: 1px solid #ffaa49 !important;
         text-align: center;
     }
-    
+
     .gallery-page .gallery-main-btn {
         width: 100%;
         text-align: center;

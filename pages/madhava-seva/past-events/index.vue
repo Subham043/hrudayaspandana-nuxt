@@ -22,7 +22,7 @@
                             <h6>{{$dateFns.format(new Date(item.sdate), 'dd')}}</h6>
                         </div>
                         <div class="content-col">
-                            <h6> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}  - {{$dateFns.format(new Date(item.edate), 'dd MMM yyyy')}} 
+                            <h6> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}  - {{$dateFns.format(new Date(item.edate), 'dd MMM yyyy')}}
                                 </h6>
                             <h4 style="text-transform: uppercase"><NuxtLink
                                     :to="`/madhava-seva/past-events/${item.id}`">{{ item.name }}</NuxtLink>
@@ -30,8 +30,8 @@
                             <p>On the last Monday of the Kartika Masam, team Hrudaya Spandana performed Maha Rudrabhishekam in Sai Durga Temple, Lepakshi in the divine presence of our Lord.<br>...</p>
                         </div>
                         <div class="img-col">
-                            <img 
-                                onContextMenu="return false;" 
+                            <img
+                                onContextMenu="return false;"
                                 loading="lazy"
                                 :src="item.image" alt="">
                         </div>
@@ -40,8 +40,8 @@
                     <div class="row">
                         <div v-for="(item, i) in tableData" :key="i" class="col-lg-4 col-md-6 col-sm-12 event-col">
                             <div class="event-col-inner">
-                                <img 
-                                    onContextMenu="return false;" 
+                                <img
+                                    onContextMenu="return false;"
                                     loading="lazy"
                                     class="img-thumb"
                                     :src="item.image"
@@ -60,14 +60,14 @@
 
                 </div>
                 <div class="gallery-main-btn">
-                    <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
+                    <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
                 </div>
 
 
             </div>
         </div>
     </section>
-       
+
     </div>
 </template>
 

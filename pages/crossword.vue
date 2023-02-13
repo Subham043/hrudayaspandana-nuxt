@@ -13,12 +13,12 @@
             <viewer class="gallery-box" :images="tableData">
                 <ul id="gallery">
                     <li  v-for="(item, i) in tableData" :key="i">
-                        <a  
+                        <a
                             href="javascript:void(0)"
                             class="thumbnail img-thumbnail">
-                            <img 
-                                onContextMenu="return false;" 
-                                alt=".." 
+                            <img
+                                onContextMenu="return false;"
+                                alt=".."
                                 loading="lazy"
                                 :src="item.image" />
 
@@ -28,7 +28,7 @@
                 </ul>
             </viewer>
             <div class="gallery-main-btn">
-                <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
+                <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
             </div>
         </section>
     </div>

@@ -16,17 +16,17 @@
             </div>
 
             <div id="gallery-menu">
-                <a 
+                <a
                 href="javascript:void(0)"
                 :class="filter==='all' ? 'liquo-active' : ''"
                 @click="handleFilterField('all')"
                 >All</a>
-                <a 
+                <a
                 href="javascript:void(0)"
                 :class="filter==='Madhava Seva' ? 'liquo-active' : ''"
                 @click="handleFilterField('Madhava Seva')"
                 >Madhava Seva</a>
-                <a 
+                <a
                 href="javascript:void(0)"
                 :class="filter==='Manava Seva' ? 'liquo-active' : ''"
                 @click="handleFilterField('Manava Seva')"
@@ -37,12 +37,12 @@
         <div class="gallery-box">
             <viewer id="gallery" class="gallery-main" :images="tableData">
                 <div v-for="(item, i) in tableData" :key="i" class="gallery-main-container">
-                    <div 
-                        class="thumbnail img-thumbnail" 
+                    <div
+                        class="thumbnail img-thumbnail"
                         data-liquo="Manava Seva">
-                        <img 
-                            onContextMenu="return false;" 
-                            alt=".." 
+                        <img
+                            onContextMenu="return false;"
+                            alt=".."
                             loading="lazy"
                             :src="item.image" />
                         <div class="desc-cont">
@@ -59,15 +59,15 @@
 
                     </div>
                 </div>
-                
+
             </viewer>
-            
+
         </div>
         <div class="gallery-main-btn">
-            <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
+            <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
         </div>
     </section>
-        
+
     </div>
 </template>
 
@@ -128,10 +128,12 @@ export default {
             // console.log(this.currentPage);
         },
         handleSearchField(){
+            this.currentPage = 1;
             this.$router.push({query:{page:this.currentPage,search:this.search,filter:this.filter}});
         },
         handleFilterField(filter){
             this.filter = filter;
+            this.currentPage = 1;
             this.$router.push({query:{page:this.currentPage,search:this.search,filter:this.filter}});
         }
     }
@@ -325,7 +327,7 @@ export default {
         border: 1px solid #ffaa49 !important;
         text-align: center;
     }
-    
+
     .gallery-page .gallery-main-btn {
         width: 100%;
         text-align: center;

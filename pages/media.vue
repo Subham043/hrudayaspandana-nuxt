@@ -13,35 +13,35 @@
             <viewer class="gallery-box" :images="tableData">
                 <ul id="gallery">
                     <li  v-for="(item, i) in tableData" :key="i">
-                        <a 
-                            v-if="item.type===1" 
+                        <a
+                            v-if="item.type===1"
                             href="javascript:void(0)"
                             class="thumbnail img-thumbnail">
-                            <img 
-                                onContextMenu="return false;" 
-                                alt=".." 
+                            <img
+                                onContextMenu="return false;"
+                                alt=".."
                                 loading="lazy"
                                 :src="item.media" />
 
                         </a>
                         <a v-else href="javascript:void(0)" class="thumbnail img-thumbnail" style="width:100%;height:350px;">
-                            <iframe 
-                                id="iframeVdo" 
+                            <iframe
+                                id="iframeVdo"
                                 :src="item.media"
-                                title="YouTube video player" 
-                                frameborder="0" 
+                                title="YouTube video player"
+                                frameborder="0"
                                 loading="lazy"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen 
+                                allowfullscreen
                                 style="width: 100%; height:100%"></iframe>
-    
+
                         </a>
                     </li>
 
                 </ul>
             </viewer>
             <div class="gallery-main-btn">
-                <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
+                <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
             </div>
         </section>
     </div>

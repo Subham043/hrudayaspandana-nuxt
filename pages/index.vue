@@ -7,9 +7,9 @@
                     <div class="regular slider">
                         <template v-if="banner.length>0">
                             <VueSlickCarousel v-bind="slickOptions" ref="slickBanner">
-                                <BannerSlideComponent 
+                                <BannerSlideComponent
                                     v-for="(item, i) in banner" :key="i"
-                                    :image="item.image" 
+                                    :image="item.image"
                                     :quote="item.quote" />
                             </VueSlickCarousel>
                         </template>
@@ -62,11 +62,11 @@
                             <div class="col-lg-4">
                                 <div>
                                     <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="name">
-                                        <input 
+                                        <input
                                             id="subscribeName"
-                                            v-model="name" 
-                                            type="text" 
-                                            class="form-control form-donation-input" 
+                                            v-model="name"
+                                            type="text"
+                                            class="form-control form-donation-input"
                                             name="name" placeholder="Name*" value="">
                                         <div :class="classes">{{ errors[0] }}</div>
                                     </ValidationProvider>
@@ -75,11 +75,11 @@
                             <div class="col-lg-4">
                                 <div>
                                     <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="phone">
-                                        <input 
+                                        <input
                                         id="subscribePhone"
-                                        v-model="phone" 
-                                        type="text" 
-                                        class="form-control form-donation-input" 
+                                        v-model="phone"
+                                        type="text"
+                                        class="form-control form-donation-input"
                                         name="phone" placeholder="Mobile*" value="">
                                         <div :class="classes">{{ errors[0] }}</div>
                                     </ValidationProvider>
@@ -88,11 +88,11 @@
                             <div class="col-lg-4">
                                 <div>
                                     <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
-                                        <input 
+                                        <input
                                             id="subscribeEmail"
-                                            v-model="email" 
-                                            type="text" 
-                                            class="form-control form-donation-input" 
+                                            v-model="email"
+                                            type="text"
+                                            class="form-control form-donation-input"
                                             name="email" placeholder="Email*" value="">
                                         <div :class="classes">{{ errors[0] }}</div>
                                     </ValidationProvider>
@@ -101,32 +101,32 @@
                             </div>
                         </div>
                         <div class="mb-4 text-center subscription-form-tick">
-                            <input 
-                                id="event" 
-                                v-model="event" 
-                                type="checkbox" 
+                            <input
+                                id="event"
+                                v-model="event"
+                                type="checkbox"
                                 class="form-check-input  form-donation-checkbox"
                                 name="event">
                             <label class="form-check-label" for="event">Events</label>
-                            <input 
-                                 id="newsletter" 
-                                 v-model="newsletter" 
-                                 type="checkbox" 
+                            <input
+                                 id="newsletter"
+                                 v-model="newsletter"
+                                 type="checkbox"
                                  class="form-check-input  form-donation-checkbox"
                                  name="newsletter">
                             <label class="form-check-label" for="newsletter">Newsletter</label>
-                            <input 
-                                id="blog" 
-                                v-model="blog" 
-                                type="checkbox" 
+                            <input
+                                id="blog"
+                                v-model="blog"
+                                type="checkbox"
                                 class="form-check-input  form-donation-checkbox"
                                 name="blog">
                             <label class="form-check-label" for="blog">Blogs</label>
                         </div>
                         <div class="mb-3 text-center">
-                            <button 
+                            <button
                                 id="subscribeSubmit"
-                                type="submit" 
+                                type="submit"
                                 class="btn btn-primary  form-donation-submit">Subscribe Now</button>
                         </div>
                     </form>
@@ -157,17 +157,17 @@
                 </div>
             </div>
             <viewer class="gallery-box" :images="galleryImages">
-                <a 
+                <a
                     v-for="(item, i) in galleryImages" :key="i"
                     href="javascript:void(0)"
                     class="thumbnail img-thumbnail">
-                    <img 
-                        onContextMenu="return false;" 
-                        alt=".." 
+                    <img
+                        onContextMenu="return false;"
+                        alt=".."
                         loading="lazy"
                         :src="item.image" />
                 </a>
-                
+
             </viewer>
             <div class="gallery-main-btn">
                 <NuxtLink to="/gallery/images">View More Images</NuxtLink>
@@ -176,17 +176,17 @@
         </section>
 
 
-        <section 
+        <section
             class="video-banner"
             :style="`background-image: url('${videoBannerImage}')`">
             <div class="wrapper video-banner-wrapper">
-                <div 
+                <div
                     id="modalBtn"
-                    class="play-btn-div" 
-                    type="button" 
-                    data-bs-toggle="modal" 
+                    class="play-btn-div"
+                    type="button"
+                    data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
-                    :video_url="videoBannerVideo" 
+                    :video_url="videoBannerVideo"
                     @click="dialogFormVisible=true"
                     >
                     <i class="fas fa-play"></i>
@@ -215,18 +215,18 @@
 
                             <template v-if="i % 2 != 0">
                                 <div class="event-row-image">
-                                    <img 
-                                        loading="lazy" 
-                                        onContextMenu="return false;" 
+                                    <img
+                                        loading="lazy"
+                                        onContextMenu="return false;"
                                         style="margin-top:20px"
-                                        :src="item.jetpack_featured_media_url" 
+                                        :src="item.jetpack_featured_media_url"
                                         alt="">
                                 </div>
                                 <div class="event-row-line event-row-one">
                                     <div class="line"></div>
                                 </div>
                                 <div class="event-row-text event-row-two">
-                                    <a href="#">
+                                    <a target="_blank" :href="item.link">
                                         <h4 style="text-transform: capitalize" v-html="item.title.rendered"></h4>
                                     </a>
                                     <p class="text-hidden-3" v-html="item.content.rendered"></p>
@@ -235,7 +235,7 @@
                             </template>
                             <template v-else>
                                 <div class="event-row-text event-row-four">
-                                    <a href="#">
+                                    <a target="_blank" :href="item.link">
                                         <h4 style="text-transform: capitalize" v-html="item.title.rendered"></h4>
                                     </a>
                                     <p class="text-hidden-3" v-html="item.content.rendered"></p>
@@ -245,11 +245,11 @@
                                     <div class="line"></div>
                                 </div>
                                 <div class="event-row-image">
-                                    <img 
-                                        loading="lazy" 
-                                        onContextMenu="return false;" 
+                                    <img
+                                        loading="lazy"
+                                        onContextMenu="return false;"
                                         style="margin-top:20px"
-                                        :src="item.jetpack_featured_media_url" 
+                                        :src="item.jetpack_featured_media_url"
                                         alt="">
                                 </div>
                             </template>
@@ -264,13 +264,13 @@
 
         <el-dialog :show-close="true" :lock-scroll="true" :visible.sync="dialogFormVisible">
             <div class="modal-body video-modal-body">
-                <iframe 
-                    id="iframeVdo" 
+                <iframe
+                    id="iframeVdo"
                     :src="videoBannerVideo"
-                    title="YouTube video player" 
+                    title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen 
+                    allowfullscreen
                     style="width: 100%; height:500px"></iframe>
             </div>
         </el-dialog>
@@ -370,7 +370,7 @@ export default {
                 this.blogs = response.data
                 // console.log(this.blogs);
             }catch(e){
-                
+
             }finally{
                 this.loading = false;
             }
@@ -416,7 +416,7 @@ export default {
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                
+
             }finally{
                 loading.close()
             }
@@ -433,7 +433,7 @@ export default {
                 // console.log(err.response);// eslint-disable-line
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                
+
             }finally{
                 loading.close()
             }
@@ -450,7 +450,7 @@ export default {
                 // console.log(err.response);// eslint-disable-line
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                
+
             }finally{
                 loading.close()
             }
@@ -468,7 +468,7 @@ export default {
                 // console.log(err.response);// eslint-disable-line
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                
+
             }finally{
                 loading.close()
             }
