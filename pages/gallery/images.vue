@@ -45,7 +45,7 @@
                             alt=".."
                             loading="lazy"
                             :src="item.image" />
-                        <div class="desc-cont">
+                        <!-- <div class="desc-cont">
                            <div class="audio-title">
                                <p class="title">{{ item.title }}</p>
                                <p class="time-stamp">21-
@@ -55,7 +55,7 @@
                            <div class="audio-description">
                                <p class="description">{{ item.description }}</p>
                            </div>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -64,7 +64,7 @@
 
         </div>
         <div class="gallery-main-btn">
-            <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
+            <pagination v-model="currentPage" :records="count" :per-page="9" :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
         </div>
     </section>
 
@@ -134,7 +134,7 @@ export default {
         handleFilterField(filter){
             this.filter = filter;
             this.currentPage = 1;
-            this.$router.push({query:{page:this.currentPage,search:this.search,filter:this.filter}});
+            this.$router.push({query:{page:1,search:this.search,filter}});
         }
     }
 }

@@ -41,7 +41,7 @@
                 </ul>
             </viewer>
             <div class="gallery-main-btn">
-                <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
+                <pagination v-model="currentPage" :records="count" :per-page="9" :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
             </div>
         </section>
     </div>

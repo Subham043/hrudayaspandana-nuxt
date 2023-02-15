@@ -22,8 +22,8 @@
                                         <div class="testimonial-main-div">
                                             <div class="testimonial-hover-div">
                                                 <div class="testimonial-div-image">
-                                                    <img 
-                                                        onContextMenu="return false;" 
+                                                    <img
+                                                        onContextMenu="return false;"
                                                         loading="lazy"
                                                         :src="item.image"
                                                         alt="">
@@ -34,7 +34,7 @@
                                                         <p>{{item.description}}</p>
                                                         <p></p>
                                                     </div>
-    
+
                                                 </div>
                                             </div>
                                         </div>
@@ -174,12 +174,12 @@ export default {
                 ],
             },
             nodes: [
-                { id: 1, name: "Hrudayaspandana", title: "Trust", img: "/images/round-logo.webp" },
+                { id: 1, name: "Hrudayaspandana", title: "Trust", img: "/images/round-logo.webp", tags: ["subLevels0"] },
                 { id: 2, pid: 1, name: "Trust Development Specialist", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
                 { id: 3, pid: 1, name: "Chief Financial Advisor", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
-                { id: 4, pid: 1, name: "Advisory Committee", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels2"] },
+                { id: 4, pid: 1, name: "Advisory Committee", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
                 { id: 5, pid: 1, name: "Sai Mayee Trust", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
-                { id: 6, pid: 1, name: "Sri Sai Meru Mathi Trust", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels2"] },
+                { id: 6, pid: 1, name: "Sri Sai Meru Mathi Trust", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
                 { id: 7, pid: 2, name: "Sivaumar", title: "Member", img: "/images/leader/leader14.webp", about: "PVB Sivakumar (Trust Development Specialist, Hrudaya Spandana) has done graduation in Arts and diploma in business management.He worked as a Zonal sales manager in a reputed company." },
                 { id: 8, pid: 3, name: "Sailesh", title: "Member", img: "/images/leader/leader13.jpeg", about: "Sailesh K (Chief Financial Advisor, Hrudaya Spandana) is a chartered Accountant in service with 25 + years of experience.Currently working as a branch manager in ICICI." },
                 { id: 9, pid: 4, name: "M Venkateswarulu", title: "Member", img: "/images/leader/leader9.jpg", about: "M Venkateshwarlu (an advisor, Hrudaya Spandana), holds master’s degree in mechanical engineering from NIT, Warangal.He is currently working as a senior scientist at GTRE, DRDO." },
@@ -210,16 +210,12 @@ export default {
         },
         mytree: function(domEl, x) {
             this.chart = new OrgChart (domEl, {
-                mouseScrool: OrgChart.action.scroll,
+                mouseScrool: OrgChart.action.none,
+                scaleInitial: OrgChart.match.width,
                 layout: OrgChart.tree,
                 enableSearch: false,
                 template: "ula",
-                scaleInitial: 0.6,
                 editForm: {readOnly: true},
-                // collapse: {
-                //     level: 2,
-                //     allChildren: true
-                // },
                 tags: {
                     "subLevels0": {
                         subLevels: 0
@@ -232,6 +228,9 @@ export default {
                     },
                     "subLevels3": {
                         subLevels: 3
+                    },
+                    "subLevels4": {
+                        subLevels: 4
                     }
                 },
                 nodes: x,

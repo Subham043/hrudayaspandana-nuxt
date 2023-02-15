@@ -54,7 +54,7 @@
 
         </div>
         <div class="gallery-main-btn">
-            <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
+            <pagination v-model="currentPage" :records="count" :per-page="9" :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
         </div>
     </section>
 
@@ -119,7 +119,7 @@ export default {
         handleFilterField(filter){
             this.filter = filter;
             this.currentPage = 1;
-            this.$router.push({query:{page:this.currentPage,filter:this.filter}});
+            this.$router.push({query:{page:1,filter}});
         }
     }
 }

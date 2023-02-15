@@ -27,7 +27,8 @@
                                 alt="">
                             <div class="event-text">
                                 <h4 style="text-transform: uppercase">
-                                    <img src="/images/om.png" /><NuxtLink :to="`/manava-seva/upcoming-events/${item.id}`">{{ item.name }}</NuxtLink>
+                                    <!-- <img src="/images/om.png" /> -->
+                                    <NuxtLink :to="`/manava-seva/upcoming-events/${item.id}`">{{ item.name }}</NuxtLink>
                                 </h4>
                                 <h6><i class="el-icon-time"></i> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}  - {{$dateFns.format(new Date(item.edate), 'dd MMM yyyy')}} </h6>
                                 <NuxtLink :to="`/manava-seva/upcoming-events/${item.id}`" class="event-link">Learn More <i class="el-icon-right"></i></NuxtLink>
@@ -39,7 +40,7 @@
 
             </div>
             <div class="gallery-main-btn">
-                <pagination v-model="currentPage" :records="count" :per-page="9" @paginate="handlePaginationChnage"/>
+                <pagination v-model="currentPage" :records="count" :per-page="9" :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
             </div>
 
 

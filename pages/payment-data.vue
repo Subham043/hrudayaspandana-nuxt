@@ -46,14 +46,14 @@
                             <template slot-scope="scope">
                                 <el-button
                                 v-if="scope.row.status===0"
-                                slot="reference" 
-                                type="primary" 
-                                icon="el-icon-wallet"  
+                                slot="reference"
+                                type="primary"
+                                icon="el-icon-wallet"
                                 circle
                                 @click="makePayment({
-                                    order_id:scope.row.order_id, 
-                                    first_name: scope.row.first_name, 
-                                    last_name: scope.row.last_name, 
+                                    order_id:scope.row.order_id,
+                                    first_name: scope.row.first_name,
+                                    last_name: scope.row.last_name,
                                     email: scope.row.email,
                                     phone: scope.row.phone,
                                     amount: scope.row.amount,
@@ -61,9 +61,9 @@
                                 ></el-button>
                                 <el-button
                                 v-if="scope.row.status===1"
-                                slot="reference" 
-                                type="success" 
-                                icon="el-icon-download"  
+                                slot="reference"
+                                type="success"
+                                icon="el-icon-download"
                                 circle
                                 @click="downloadCertificate(scope.row.id)"
                                 ></el-button>
@@ -72,7 +72,7 @@
                     </el-table>
                 </div>
                 <div class="gallery-main-btn">
-                    <pagination v-model="currentPage" :records="count" :per-page="10" @paginate="handlePaginationChnage"/>
+                    <pagination v-model="currentPage" :records="count" :per-page="10" :options="{chunk:10, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
                 </div>
             </div>
         </section>
