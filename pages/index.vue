@@ -303,9 +303,9 @@ export default {
             videoBannerVideo:'',
             dialogFormVisible: false,
             about: [
-                {image:"/images/about/about4.jpg", link:"/about", heading:"Hrudaya Spandana", description:"Hrudaya Spandana unveils the spirit of vital enthusiasm with pure intention, motivation and selfless service."},
+                {image:"/images/about/about4.webp", link:"/about", heading:"Hrudaya Spandana", description:"Hrudaya Spandana unveils the spirit of vital enthusiasm with pure intention, motivation and selfless service."},
                 {image:"/images/about/about6.webp", link:"/about/sai-mayee-trust", heading:"Sai Mayee Trust", description:"Depth of commitment towards extending selfless service with unflinching faith brings out the Divinity in each one of us."},
-                {image:"/images/about/about5.jpg", link:"/about/sai-meru-mathi-trust", heading:"Sri Sai Meru Mathi Trust", description:"The body is the temple of God and the temple is the body of societal consciousness of Divinity."}
+                {image:"/images/about/about5.webp", link:"/about/sai-meru-mathi-trust", heading:"Sri Sai Meru Mathi Trust", description:"The body is the temple of God and the temple is the body of societal consciousness of Divinity."}
             ],
             events: [
                 {image:"/images/swamy2.jpg", title:"Manava Seva", upcomingLink:"/manava-seva/upcoming-events", pastLink:"/manava-seva/past-events"},
