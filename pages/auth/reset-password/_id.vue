@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Reset Password" />
+        <LazyHeroComponent title="Reset Password" />
 
         <section class="hundi donation-page login-page">
             <div class="wrapper">
@@ -10,7 +10,7 @@
                             <h4 class="lower-heading">Reset Password</h4>
                         </div>
                         <ValidationObserver ref="form" v-slot="{ handleSubmit }">
-                        <form 
+                        <form
                             id="forgot_password_form"
                             method="post"
                             @submit.prevent="handleSubmit(formHandler)">
@@ -18,14 +18,14 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required" name="otp">
-                                            <input 
-                                                id="otp" 
-                                                v-model="otp" 
-                                                type="text" 
-                                                name="otp" 
+                                            <input
+                                                id="otp"
+                                                v-model="otp"
+                                                type="text"
+                                                name="otp"
                                                 autocomplete="off"
-                                                class="form-control form-hundi-input" 
-                                                placeholder="OTP*" 
+                                                class="form-control form-hundi-input"
+                                                placeholder="OTP*"
                                                 value="">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -34,12 +34,12 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required" vid="password" name="password">
-                                            <input 
-                                                id="password" 
-                                                v-model="password" 
-                                                type="password" 
+                                            <input
+                                                id="password"
+                                                v-model="password"
+                                                type="password"
                                                 name="password"
-                                                class="form-control form-hundi-input" 
+                                                class="form-control form-hundi-input"
                                                 placeholder="Password*">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -48,12 +48,12 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|confirmed:password" name="confirm password">
-                                            <input 
-                                                id="cpassword" 
-                                                v-model="cpassword" 
-                                                type="password" 
+                                            <input
+                                                id="cpassword"
+                                                v-model="cpassword"
+                                                type="password"
                                                 name="cpassword"
-                                                class="form-control form-hundi-input" 
+                                                class="form-control form-hundi-input"
                                                 placeholder="Confirm Password*">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -64,7 +64,7 @@
                                 <button type="button" class="forgot-password-link" style="background:transparent;border:none;" @click="resendOTP">Resend OTP</button>
                             </div>
                             <div class="mb-3 text-center">
-                                <button 
+                                <button
                                     type="submit"
                                     class="btn btn-primary form-hundi-submit form-hundi-login">Submit</button>
                             </div>
@@ -117,7 +117,7 @@ export default {
             });
             if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
             if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-            
+
         }finally{
           loading.close()
         }
@@ -144,7 +144,7 @@ export default {
         } catch (err) {
             if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
             if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-            
+
         }finally{
           loading.close()
         }

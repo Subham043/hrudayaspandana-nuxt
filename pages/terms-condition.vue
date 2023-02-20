@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Terms & Condition" />
+        <LazyHeroComponent title="Terms & Condition" />
 
         <section class="about">
             <div class="wrapper">

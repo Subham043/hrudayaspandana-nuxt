@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Sri Sai Meru Mathi Trust" />
+        <LazyHeroComponent title="Sri Sai Meru Mathi Trust" />
 
         <section class="about">
             <div class="wrapper">

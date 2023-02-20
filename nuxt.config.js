@@ -86,6 +86,20 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // analyze: true,
+    extractCSS: true,
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|vue)$/,
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
+    },
     transpile: [/^element-ui/,"vee-validate/dist/rules"],
   },
 
@@ -132,13 +146,4 @@ export default {
     }
   },
 
-
-
-  fontawesome: {
-    icons: {
-      solid: true,
-      brands: true,
-      regular: true,
-    }
-  },
 }

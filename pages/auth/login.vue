@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Login" />
+        <LazyHeroComponent title="Login" />
 
         <section class="hundi donation-page login-page">
             <div class="wrapper">
@@ -16,13 +16,13 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
-                                            <input 
-                                                id="email" 
-                                                v-model="email" 
-                                                type="email" 
-                                                autocomplete="off" 
+                                            <input
+                                                id="email"
+                                                v-model="email"
+                                                type="email"
+                                                autocomplete="off"
                                                 name="email" value=""
-                                                class="form-control form-hundi-input" 
+                                                class="form-control form-hundi-input"
                                                 placeholder="Email*">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -31,13 +31,13 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required" name="password">
-                                            <input 
-                                                id="password" 
-                                                v-model="password" 
-                                                type="password" 
-                                                autocomplete="off" 
+                                            <input
+                                                id="password"
+                                                v-model="password"
+                                                type="password"
+                                                autocomplete="off"
                                                 name="password"
-                                                class="form-control form-hundi-input" 
+                                                class="form-control form-hundi-input"
                                                 placeholder="Password*">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -45,14 +45,14 @@
                                 </div>
                             </div>
                             <div class="mb-3 login-row">
-                                <NuxtLink 
+                                <NuxtLink
                                     to="/auth/forgot-password"
                                     class="forgot-password-link">Forgot Password</NuxtLink>
                                 <NuxtLink to="/auth/register" class="forgot-password-link">Register
                                 </NuxtLink>
                             </div>
                             <div class="mb-3 text-center">
-                                <button 
+                                <button
                                     type="submit"
                                     class="btn btn-primary form-hundi-submit form-hundi-login">Login</button>
                             </div>
@@ -105,7 +105,7 @@ export default {
                     this.$toast.info('We have shared you an otp via email. kindly enter that in order to verify your email.')
                     this.$router.push('/auth/verify-user/'+err?.response?.data?.error_id);
                 }
-                
+
             } finally{
             loading.close()
             }

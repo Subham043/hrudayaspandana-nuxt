@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Register" />
+        <LazyHeroComponent title="Register" />
 
         <section class="hundi donation-page">
             <div class="wrapper">
@@ -15,13 +15,13 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="first name">
-                                            <input 
-                                                id="fname" 
-                                                v-model="first_name" 
-                                                type="text" 
-                                                name="fname" 
+                                            <input
+                                                id="fname"
+                                                v-model="first_name"
+                                                type="text"
+                                                name="fname"
                                                 class="form-control form-hundi-input"
-                                                placeholder="First Name*" 
+                                                placeholder="First Name*"
                                                 value="">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -30,13 +30,13 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="first name">
-                                            <input 
-                                                id="lname" 
-                                                v-model="last_name" 
-                                                type="text" 
-                                                name="lname" 
+                                            <input
+                                                id="lname"
+                                                v-model="last_name"
+                                                type="text"
+                                                name="lname"
                                                 class="form-control form-hundi-input"
-                                                placeholder="Last Name*" 
+                                                placeholder="Last Name*"
                                                 value="">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -47,13 +47,13 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
-                                            <input 
-                                                id="email" 
-                                                v-model="email" 
-                                                type="email" 
+                                            <input
+                                                id="email"
+                                                v-model="email"
+                                                type="email"
                                                 name="email"
-                                                class="form-control form-hundi-input" 
-                                                placeholder="Email*" 
+                                                class="form-control form-hundi-input"
+                                                placeholder="Email*"
                                                 value="">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -62,13 +62,13 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="phone" name="phone">
-                                            <input 
-                                                id="phone" 
-                                                v-model="phone" 
-                                                type="text" 
-                                                name="phone" 
+                                            <input
+                                                id="phone"
+                                                v-model="phone"
+                                                type="text"
+                                                name="phone"
                                                 class="form-control form-hundi-input"
-                                                placeholder="Phone Number*" 
+                                                placeholder="Phone Number*"
                                                 value="">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -79,12 +79,12 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required" vid="password" name="password">
-                                            <input 
-                                                id="password" 
-                                                v-model="password" 
-                                                type="password" 
+                                            <input
+                                                id="password"
+                                                v-model="password"
+                                                type="password"
                                                 name="password"
-                                                class="form-control form-hundi-input" 
+                                                class="form-control form-hundi-input"
                                                 placeholder="Password*">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -93,12 +93,12 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|confirmed:password" name="confirm password">
-                                            <input 
-                                                id="cpassword" 
-                                                v-model="cpassword" 
-                                                type="password" 
+                                            <input
+                                                id="cpassword"
+                                                v-model="cpassword"
+                                                type="password"
                                                 name="cpassword"
-                                                class="form-control form-hundi-input" 
+                                                class="form-control form-hundi-input"
                                                 placeholder="Confirm Password*">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -107,11 +107,11 @@
                             </div>
                             <div class="mb-3 form-check">
                                 <ValidationProvider v-slot="{ classes, errors }" :rules="{ required: { allowFalse: false } }" name="terms and condition">
-                                    <input 
+                                    <input
                                         id="check"
-                                        v-model="accept" 
-                                        type="checkbox" 
-                                        class="form-check-input  form-hundi-checkbox" 
+                                        v-model="accept"
+                                        type="checkbox"
+                                        class="form-check-input  form-hundi-checkbox"
                                         name="check">
                                     <label class="form-check-label" for="check">I accept the <NuxtLink
                                             to="/terms-condition" target="_blank">terms and
@@ -178,7 +178,7 @@ export default {
                 this.$toast.info('We have shared you an otp via email. kindly enter that in order to verify your email.')
                 this.$router.push('/auth/verify-user/'+err?.response?.data?.error_id);
             }
-            
+
         }finally{
           loading.close()
         }

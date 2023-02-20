@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Payment" />
+        <LazyHeroComponent title="Payment" />
 
         <section class="gallery-page">
             <div class="wrapper">

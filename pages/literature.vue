@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Literature" />
+        <LazyHeroComponent title="Literature" />
 
         <section class="gallery-page">
             <div class="wrapper">

@@ -7,7 +7,7 @@
                     <div class="regular slider">
                         <template v-if="banner.length>0">
                             <VueSlickCarousel v-bind="slickOptions" ref="slickBanner">
-                                <BannerSlideComponent
+                                <LazyBannerSlideComponent
                                     v-for="(item, i) in banner" :key="i"
                                     :image="item.image"
                                     :quote="item.quote" />
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="about-row">
-                    <AboutCardComponent v-for="(item, i) in about" :key="i" :image="item.image" :heading="item.heading" :link="item.link" :description="item.description" />
+                    <LazyAboutCardComponent v-for="(item, i) in about" :key="i" :image="item.image" :heading="item.heading" :link="item.link" :description="item.description" />
                 </div>
             </div>
         </section>
@@ -143,7 +143,7 @@
                 </div>
                 <div class="blogs-main">
                     <div class="blog-main-row">
-                        <HomeEventCardComponent v-for="(item, i) in events" :key="i" :image="item.image" :title="item.title" :upcoming-link="item.upcomingLink" :past-link="item.pastLink" />
+                        <LazyHomeEventCardComponent v-for="(item, i) in events" :key="i" :image="item.image" :title="item.title" :upcoming-link="item.upcomingLink" :past-link="item.pastLink" />
                     </div>
                 </div>
             </div>

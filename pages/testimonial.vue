@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Testimonial" />
+        <LazyHeroComponent title="Testimonial" />
 
         <section class="about">
             <div class="wrapper">
@@ -20,7 +20,7 @@
                                             <div class="testimonial-main-div">
                                                 <div class="testimonial-hover-div">
                                                     <div class="testimonial-div-image">
-                                                        <img 
+                                                        <img
                                                             onContextMenu="return false;"
                                                             src="/images/round-logo.webp"
                                                             alt="">
@@ -29,7 +29,7 @@
                                                         <div class="scroll-div">
                                                             <p>{{item.testimonial}}</p>
                                                         </div>
-        
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -61,9 +61,9 @@
                                         <div v-for="(item, i) in testimonialVideos" :key="i">
                                             <div class="testimonial-video-main-div">
                                                 <div class="testimonial-video-hover-div">
-                                                    <iframe 
-                                                        id="iframeVdo" 
-                                                        class="iframe-video" 
+                                                    <iframe
+                                                        id="iframeVdo"
+                                                        class="iframe-video"
                                                         :src="item.testimonial"
                                                         title="YouTube video player" frameborder="0"
                                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

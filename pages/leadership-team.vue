@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Leadership Team" />
+        <LazyHeroComponent title="Leadership Team" />
 
         <section class="about">
             <div class="wrapper">

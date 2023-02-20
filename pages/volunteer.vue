@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Volunteer" />
+        <LazyHeroComponent title="Volunteer" />
 
         <section class="about volunteer-about">
             <div class="wrapper">
@@ -47,11 +47,11 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="first name">
-                                            <input 
-                                                id="fname" 
-                                                v-model="first_name" 
-                                                type="text" 
-                                                name="fname" 
+                                            <input
+                                                id="fname"
+                                                v-model="first_name"
+                                                type="text"
+                                                name="fname"
                                                 class="form-control form-hundi-input"
                                                 placeholder="First Name" value="">
                                             <div :class="classes">{{ errors[0] }}</div>
@@ -61,11 +61,11 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="last name">
-                                            <input 
-                                                id="lname" 
-                                                v-model="last_name" 
-                                                type="text" 
-                                                name="lname" 
+                                            <input
+                                                id="lname"
+                                                v-model="last_name"
+                                                type="text"
+                                                name="lname"
                                                 class="form-control form-hundi-input"
                                                 placeholder="Last Name" value="">
                                             <div :class="classes">{{ errors[0] }}</div>
@@ -77,11 +77,11 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="phone">
-                                            <input 
-                                                id="phone" 
-                                                v-model="phone" 
-                                                type="text" 
-                                                name="phone" 
+                                            <input
+                                                id="phone"
+                                                v-model="phone"
+                                                type="text"
+                                                name="phone"
                                                 class="form-control form-hundi-input"
                                                 placeholder="Phone Number" value="">
                                             <div :class="classes">{{ errors[0] }}</div>
@@ -91,10 +91,10 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
-                                            <input 
-                                                id="email" 
-                                                v-model="email" 
-                                                type="email" 
+                                            <input
+                                                id="email"
+                                                v-model="email"
+                                                type="email"
                                                 name="email"
                                                 class="form-control form-hundi-input" placeholder="Email" value="">
                                             <div :class="classes">{{ errors[0] }}</div>
@@ -104,11 +104,11 @@
                             </div>
                             <div class="mb-3">
                                 <ValidationProvider v-slot="{ classes, errors }" rules="required" name="aadhar">
-                                    <input 
-                                    id="aadhaar" 
+                                    <input
+                                    id="aadhaar"
                                     v-model="aadhar"
-                                    type="text" 
-                                    name="aadhaar" 
+                                    type="text"
+                                    name="aadhaar"
                                     class="form-control form-hundi-input"
                                     placeholder="Aadhaar Number*" value="">
                                     <div :class="classes">{{ errors[0] }}</div>
@@ -116,11 +116,11 @@
                             </div>
                             <div class="mb-3">
                                 <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="address">
-                                    <textarea 
-                                    id="address" 
+                                    <textarea
+                                    id="address"
                                     v-model="address"
-                                    type="text" 
-                                    name="address" 
+                                    type="text"
+                                    name="address"
                                     class="form-control form-hundi-input"
                                     rows="7" placeholder="Address*"></textarea>
                                     <div :class="classes">{{ errors[0] }}</div>
@@ -128,12 +128,12 @@
                             </div>
                             <div class="mb-3">
                                 <ValidationProvider v-slot="{ classes, errors }" rules="required|custom_message" name="interest">
-                                    <textarea 
+                                    <textarea
                                     id="interest"
-                                    v-model="interest" 
-                                    type="text" 
+                                    v-model="interest"
+                                    type="text"
                                     name="interest"
-                                    class="form-control form-hundi-input" 
+                                    class="form-control form-hundi-input"
                                     rows="7"
                                     placeholder="Describe your seva interest.*"></textarea>
                                     <div :class="classes">{{ errors[0] }}</div>
@@ -141,11 +141,11 @@
                             </div>
                             <div class="mb-3 form-check">
                                 <ValidationProvider v-slot="{ classes, errors }" :rules="{ required: { allowFalse: false } }" name="terms and condition">
-                                    <input 
+                                    <input
                                         id="check"
-                                        v-model="accept" 
-                                        type="checkbox" 
-                                        class="form-check-input  form-hundi-checkbox" 
+                                        v-model="accept"
+                                        type="checkbox"
+                                        class="form-check-input  form-hundi-checkbox"
                                         name="check">
                                     <label class="form-check-label" for="check">I accept the <NuxtLink
                                             to="/terms-condition" target="_blank">terms and
@@ -220,7 +220,7 @@ export default {
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                
+
             }finally{
             loading.close()
             }

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Privacy Policy" />
+        <LazyHeroComponent title="Privacy Policy" />
 
         <section class="about">
             <div class="wrapper">

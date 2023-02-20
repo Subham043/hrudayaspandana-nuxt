@@ -1,8 +1,8 @@
 <template>
   <div>
-      <HeaderComponent />
+      <LazyHeaderComponent />
       <Nuxt />
-      <FooterComponent />
+      <LazyFooterComponent />
   </div>
 </template>
 

@@ -1,11 +1,11 @@
 <template>
     <div>
-        <HeroComponent title="Donation Refund Policy" />
+        <LazyHeroComponent title="Donation Refund Policy" />
 
         <section class="about">
         <div class="wrapper">
             <div class="about-page-row">
-               
+
                 <div class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div">
                     <div class="heading">
                         <h4 class="lower-heading">Donation Refund Policy</h4>
@@ -15,13 +15,13 @@
                         <p>Please feel free to contact us for any type of queries.</p>
 
                     </div>
-                    
+
                 </div>
-                
+
             </div>
         </div>
     </section>
-        
+
     </div>
 </template>
 

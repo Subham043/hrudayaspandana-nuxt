@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Forgot Password" />
+        <LazyHeroComponent title="Forgot Password" />
 
         <section class="hundi donation-page login-page">
             <div class="wrapper">
@@ -10,7 +10,7 @@
                             <h4 class="lower-heading">Forgot Password</h4>
                         </div>
                         <ValidationObserver ref="form" v-slot="{ handleSubmit }">
-                        <form 
+                        <form
                             id="forgot_password_form"
                             method="post"
                             @submit.prevent="handleSubmit(formHandler)">
@@ -18,14 +18,14 @@
                                 <div class="col-lg-12">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
-                                            <input 
-                                                id="email" 
-                                                v-model="email" 
-                                                type="email" 
-                                                name="email" 
+                                            <input
+                                                id="email"
+                                                v-model="email"
+                                                type="email"
+                                                name="email"
                                                 autocomplete="off"
-                                                class="form-control form-hundi-input" 
-                                                placeholder="Email*" 
+                                                class="form-control form-hundi-input"
+                                                placeholder="Email*"
                                                 value="">
                                             <div :class="classes">{{ errors[0] }}</div>
                                         </ValidationProvider>
@@ -33,7 +33,7 @@
                                 </div>
                             </div>
                             <div class="mb-3 text-center">
-                                <button 
+                                <button
                                     type="submit"
                                     class="btn btn-primary form-hundi-submit form-hundi-login">Submit</button>
                             </div>
@@ -84,7 +84,7 @@ export default {
                 this.$toast.info('We have shared you an otp via email. kindly enter that in order to verify your email.')
                 this.$router.push('/auth/verify-user/'+err?.response?.data?.error_id);
             }
-            
+
         }finally{
           loading.close()
         }

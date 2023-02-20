@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Sai Mayee Trust" />
+        <LazyHeroComponent title="Sai Mayee Trust" />
         <section class="about">
             <div class="wrapper">
                 <div class="about-page-row trust-page-row">

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Find Us" />
+        <LazyHeroComponent title="Find Us" />
 
         <section class="events contact-events" style="padding-bottom:30px">
             <div class="wrapper">

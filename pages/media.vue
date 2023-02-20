@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Media" />
+        <LazyHeroComponent title="Media" />
 
         <section class="gallery-page">
             <div class="wrapper">

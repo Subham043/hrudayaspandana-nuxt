@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="Manava Seva" />
+        <LazyHeroComponent title="Manava Seva" />
 
         <section class="events-page">
             <div class="wrapper">

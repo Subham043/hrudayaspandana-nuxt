@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeroComponent title="FAQ" />
+        <LazyHeroComponent title="FAQ" />
 
         <section class="about">
             <div class="wrapper">
@@ -21,7 +21,7 @@
                                         </button>
                                     </h2>
                                 </template>
-                                <div 
+                                <div
                                     class="accordion-collapse collapse show">
                                     <div class="accordion-body">
                                         Hrudaya Spandana is an organization with the vision “To spread love and
@@ -89,7 +89,7 @@
                                         </button>
                                     </h2>
                                 </template>
-                                <div 
+                                <div
                                     class="accordion-collapse collapse show">
                                     <div class="accordion-body">
                                         <p> 1. Re-establish more and more temples</p>
