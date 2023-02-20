@@ -1,8 +1,9 @@
 <template>
     <div class="col-3-about">
         <div class="about-card">
-            <img onContextMenu="return false;"
-                :src="image" loading="lazy" alt=""
+            <img
+                onContextMenu="return false;"
+                :src="image"  alt=""
                 class="about-card-img">
             <h4><NuxtLink :to="link">{{heading}}</NuxtLink></h4>
             <p>{{description}}</p>

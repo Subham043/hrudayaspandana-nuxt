@@ -25,11 +25,11 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="first name">
-                                            <input 
-                                                id="fname" 
-                                                v-model="first_name" 
-                                                type="text" 
-                                                name="fname" 
+                                            <input
+                                                id="fname"
+                                                v-model="first_name"
+                                                type="text"
+                                                name="fname"
                                                 class="form-control form-donation-input"
                                                 placeholder="First Name" value="">
                                             <div :class="classes">{{ errors[0] }}</div>
@@ -39,11 +39,11 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="last name">
-                                            <input 
-                                                id="lname" 
-                                                v-model="last_name" 
-                                                type="text" 
-                                                name="lname" 
+                                            <input
+                                                id="lname"
+                                                v-model="last_name"
+                                                type="text"
+                                                name="lname"
                                                 class="form-control form-donation-input"
                                                 placeholder="Last Name" value="">
                                             <div :class="classes">{{ errors[0] }}</div>
@@ -55,11 +55,11 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|phone" name="phone">
-                                            <input 
-                                                id="phone" 
-                                                v-model="phone" 
-                                                type="text" 
-                                                name="phone" 
+                                            <input
+                                                id="phone"
+                                                v-model="phone"
+                                                type="text"
+                                                name="phone"
                                                 class="form-control form-donation-input"
                                                 placeholder="Phone Number" value="">
                                             <div :class="classes">{{ errors[0] }}</div>
@@ -69,10 +69,10 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|email" name="email">
-                                            <input 
-                                                id="email" 
-                                                v-model="email" 
-                                                type="email" 
+                                            <input
+                                                id="email"
+                                                v-model="email"
+                                                type="email"
                                                 name="email"
                                                 class="form-control form-donation-input" placeholder="Email" value="">
                                             <div :class="classes">{{ errors[0] }}</div>
@@ -84,11 +84,11 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="city">
-                                            <input 
-                                                id="city" 
-                                                v-model="city" 
-                                                type="text" 
-                                                name="city" 
+                                            <input
+                                                id="city"
+                                                v-model="city"
+                                                type="text"
+                                                name="city"
                                                 class="form-control form-donation-input"
                                                 placeholder="City*" value="">
                                             <div :class="classes">{{ errors[0] }}</div>
@@ -98,11 +98,11 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <ValidationProvider v-slot="{ classes, errors }" rules="required|alpha_spaces" name="state">
-                                            <input 
-                                                id="state" 
-                                                v-model="state" 
-                                                type="text" 
-                                                name="state" 
+                                            <input
+                                                id="state"
+                                                v-model="state"
+                                                type="text"
+                                                name="state"
                                                 class="form-control form-donation-input"
                                                 placeholder="State*" value="">
                                             <div :class="classes">{{ errors[0] }}</div>
@@ -123,24 +123,24 @@
                                 <div :class="classes">{{ errors[0] }}</div>
                                 </ValidationProvider>
                             </div>
-                            <div 
-                                id="certification" 
-                                class="mb-3" 
+                            <div
+                                id="certification"
+                                class="mb-3"
                                 style="display: none;">
                                 <p>
                                     <strong><span>Note:</span></strong>
-                                    <span 
+                                    <span
                                         id="certification_text"
                                         style="color: #3c3489;"></span>
                                 </p>
                             </div>
                             <div v-if="trust==='1'" id="pan_div" class="mb-3">
                                 <ValidationProvider v-slot="{ classes, errors }" rules="required" name="pan">
-                                    <input 
-                                        id="pan" 
-                                        v-model="pan" 
-                                        type="text" 
-                                        name="pan" 
+                                    <input
+                                        id="pan"
+                                        v-model="pan"
+                                        type="text"
+                                        name="pan"
                                         class="form-control form-donation-input"
                                         placeholder="PAN No.*" value="">
                                     <div :class="classes">{{ errors[0] }}</div>
@@ -148,11 +148,11 @@
                             </div>
                             <div class="mb-3">
                                 <ValidationProvider v-slot="{ classes, errors }" rules="required" name="amount">
-                                    <input 
-                                        id="amount" 
-                                        v-model="amount" 
-                                        type="text" 
-                                        name="amount" 
+                                    <input
+                                        id="amount"
+                                        v-model="amount"
+                                        type="text"
+                                        name="amount"
                                         class="form-control form-donation-input"
                                         placeholder="Amount*" value="">
                                     <div :class="classes">{{ errors[0] }}</div>
@@ -160,11 +160,11 @@
                             </div>
                             <div class="mb-3 form-check">
                                 <ValidationProvider v-slot="{ classes, errors }" :rules="{ required: { allowFalse: false } }" name="terms and condition">
-                                    <input 
+                                    <input
                                         id="check"
-                                        v-model="accept" 
-                                        type="checkbox" 
-                                        class="form-check-input  form-donation-checkbox" 
+                                        v-model="accept"
+                                        type="checkbox"
+                                        class="form-check-input  form-donation-checkbox"
                                         name="check">
                                     <label class="form-check-label" for="check">I accept the <NuxtLink
                                             to="/terms-condition" target="_blank">terms and
@@ -259,7 +259,7 @@ export default {
                 });
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                
+
             }finally{
             loading.close()
             }
@@ -271,7 +271,7 @@ export default {
                 currency: 'INR',
                 description: "Payment description",
                 order_id: data.order_id,
-                image: '/images/logo.png',
+                image: '/images/logo.webp',
                 prefill: {
                 name: data.name,
                 email: data.email,

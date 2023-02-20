@@ -155,7 +155,7 @@ export default {
                 currency: 'INR',
                 description: "Payment description",
                 order_id: data.order_id,
-                image: '/images/logo.png',
+                image: '/images/logo.webp',
                 prefill: {
                     name: data.name,
                     email: data.email,

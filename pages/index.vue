@@ -164,7 +164,7 @@
                     <img
                         onContextMenu="return false;"
                         alt=".."
-                        loading="lazy"
+
                         :src="item.image" />
                 </a>
 
@@ -216,7 +216,7 @@
                             <template v-if="i % 2 != 0">
                                 <div class="event-row-image">
                                     <img
-                                        loading="lazy"
+
                                         onContextMenu="return false;"
                                         style="margin-top:20px"
                                         :src="item.jetpack_featured_media_url"
@@ -246,7 +246,7 @@
                                 </div>
                                 <div class="event-row-image">
                                     <img
-                                        loading="lazy"
+
                                         onContextMenu="return false;"
                                         style="margin-top:20px"
                                         :src="item.jetpack_featured_media_url"

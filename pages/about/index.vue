@@ -19,10 +19,12 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 about-page-col" style="display:grid;place-items:center;">
-                        <img onContextMenu="return false;" loading="lazy"
+                        <img
+                        onContextMenu="return false;"
                             src="/images/logo.webp" alt="">
                     </div>
-                    <div class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div"
+                    <div
+                    class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div"
                         style="padding-top:0;">
                         <div class="text">
                             <p>Hrudaya Spandana stands for Reverbarations of Love. (word Hrudaya means “Love” and
@@ -80,14 +82,18 @@
                             <NuxtLink to="/about/sai-mayee-trust">View More</NuxtLink>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 first-about-img-div about-page-col"
+                    <div
+                        class="col-lg-6 col-md-12 col-sm-12 first-about-img-div about-page-col"
                         style="display:grid;place-items:center;">
-                        <img onContextMenu="return false;" loading="lazy"
+                        <img
+                        onContextMenu="return false;"
                             src="/images/mayee.jpg" alt="">
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 second-about-img-div about-page-col"
+                    <div
+                    class="col-lg-6 col-md-12 col-sm-12 second-about-img-div about-page-col"
                         style="display:grid;place-items:center;">
-                        <img onContextMenu="return false;" loading="lazy"
+                        <img
+                        onContextMenu="return false;"
                             src="/images/meru-mathi.jpeg" alt="">
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 third-about-text-div about-page-col">
@@ -115,7 +121,7 @@
                 </div>
             </div>
         </section>
-        
+
     </div>
 </template>
 

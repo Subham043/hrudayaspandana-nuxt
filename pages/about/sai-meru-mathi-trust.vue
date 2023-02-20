@@ -71,9 +71,11 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 first-about-img-div about-page-col trust-no-bottom-col  trust-page-col-four"
+                    <div
+                        class="col-lg-6 col-md-12 col-sm-12 first-about-img-div about-page-col trust-no-bottom-col  trust-page-col-four"
                         style="display:grid;place-items:center;">
-                        <img onContextMenu="return false;" loading="lazy"
+                        <img
+                            onContextMenu="return false;"
                             src="/images/meru-mathi.jpeg" alt="">
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div trust-page-col-six">

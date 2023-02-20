@@ -13,7 +13,7 @@
 
                     <div v-for="(item, i) in tableData" :key="i" class="col-lg-4 col-md-6 col-sm-12 col-literature">
                         <div class="literature-div">
-                            <img oncontextmenu="return false;" class="thumbnail img-thumbnail" loading="lazy" :src="item.image" alt="">
+                            <img oncontextmenu="return false;" class="thumbnail img-thumbnail"  :src="item.image" alt="">
                             <h4>test</h4>
                             <a target="_blank" :href="item.file">{{ item.is_pdf ? 'View PDF' : 'Buy Now' }}</a>
                         </div>

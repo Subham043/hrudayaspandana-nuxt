@@ -2,13 +2,16 @@
     <div class="col-lg-5 blog-main-single">
         <a href="javascript:void(0)" class="blog-link">
             <div class="col-blog-2 blog-img-bottom img-thumbnail">
-                <img onContextMenu="return false;" loading="lazy"
+                <img
+                    onContextMenu="return false;"
                     :src="image" alt="">
                 <div class="desc-cont">
                     <div class="audio-title">
-                        <NuxtLink :to="pastLink"
+                        <NuxtLink
+                            :to="pastLink"
                             class="event-btn-new">Past Events</NuxtLink>
-                        <NuxtLink :to="upcomingLink"
+                        <NuxtLink
+                            :to="upcomingLink"
                             class="event-btn-new">Upcoming Events</NuxtLink>
                     </div>
                 </div>

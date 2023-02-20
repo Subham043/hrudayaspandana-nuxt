@@ -19,9 +19,9 @@
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-12 img_div">
-                            <img 
-                                loading="lazy"  
-                                onContextMenu="return false;"  
+                            <img
+
+                                onContextMenu="return false;"
                                 :src="imageLink" alt="">
                         </div>
 
@@ -48,25 +48,25 @@
                 </div>
             </div>
             <viewer class="gallery-box" :images="images">
-                <a 
+                <a
                     v-for="(item, i) in images"
                     :key="i"
                     href="javascript:void(0)"
                     class="thumbnail img-thumbnail">
-                    <img 
-                        onContextMenu="return false;" 
-                        alt=".." 
-                        loading="lazy"
+                    <img
+                        onContextMenu="return false;"
+                        alt=".."
+
                         :src="item.image" />
                 </a>
-                    
+
             </viewer>
             <div class="gallery-main-btn">
                 <NuxtLink to="/gallery/images">Go To Image Gallery</NuxtLink>
             </div>
 
         </section>
-        
+
         <section v-if="videos.length>0" class="gallery service-gallery">
             <div class="wrapper">
                 <div class="heading">
@@ -76,27 +76,27 @@
             </div>
             <div class="gallery-box">
                 <ul id="gallery">
-                
+
                     <li  v-for="(item, i) in videos" :key="i">
-                            <a 
+                            <a
                                 href="#!"
-                                class="thumbnail img-thumbnail" 
+                                class="thumbnail img-thumbnail"
                                 style="width:100%;height:350px;">
-                                <iframe 
-                                id="iframeVdo" 
-                                loading="lazy" 
-                                :src="item.video" 
+                                <iframe
+                                id="iframeVdo"
+
+                                :src="item.video"
                                 title="YouTube video player"
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen 
+                                allowfullscreen
                                 style="width: 100%; height:100%"></iframe>
-                                
+
                             </a>
                     </li>
-                    
+
                 </ul>
-                    
+
             </div>
             <div class="gallery-main-btn">
                 <NuxtLink to="/gallery/videos">Go To Video Gallery</NuxtLink>

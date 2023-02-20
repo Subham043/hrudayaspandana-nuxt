@@ -43,7 +43,7 @@
                         <img
                             onContextMenu="return false;"
                             alt=".."
-                            loading="lazy"
+
                             :src="item.image" />
                         <!-- <div class="desc-cont">
                            <div class="audio-title">

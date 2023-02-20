@@ -19,7 +19,7 @@
                             <img
                                 onContextMenu="return false;"
                                 alt=".."
-                                loading="lazy"
+
                                 :src="item.image" />
 
                         </a>

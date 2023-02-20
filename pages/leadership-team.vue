@@ -24,7 +24,7 @@
                                                 <div class="testimonial-div-image">
                                                     <img
                                                         onContextMenu="return false;"
-                                                        loading="lazy"
+
                                                         :src="item.image"
                                                         alt="">
                                                 </div>

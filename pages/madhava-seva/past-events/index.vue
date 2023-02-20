@@ -32,7 +32,7 @@
                         <div class="img-col">
                             <img
                                 onContextMenu="return false;"
-                                loading="lazy"
+
                                 :src="item.image" alt="">
                         </div>
                     </div> -->
@@ -42,7 +42,7 @@
                             <div class="event-col-inner">
                                 <img
                                     onContextMenu="return false;"
-                                    loading="lazy"
+
                                     class="img-thumb"
                                     :src="item.image"
                                     alt="">

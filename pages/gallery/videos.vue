@@ -39,7 +39,7 @@
                             data-liquo="Madhava Seva">
                             <iframe
                             id="iframeVdo"
-                            loading="lazy"
+
                             :src="item.video"
                             title="YouTube video player"
                             frameborder="0"

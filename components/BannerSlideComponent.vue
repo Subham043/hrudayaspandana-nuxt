@@ -1,9 +1,9 @@
 <template>
     <div class="slider-hover-div">
         <div class="slider-div-image">
-            <img 
-                onContextMenu="return false;" 
-                loading="lazy"
+            <img
+                onContextMenu="return false;"
+
                 :src="image"
                 alt="">
             <div class="slider-image-overlay"></div>
