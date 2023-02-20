@@ -7,7 +7,7 @@
                     <div class="regular slider">
                         <template v-if="banner.length>0">
                             <VueSlickCarousel v-bind="slickOptions" ref="slickBanner">
-                                <LazyBannerSlideComponent
+                                <BannerSlideComponent
                                     v-for="(item, i) in banner" :key="i"
                                     :image="item.image"
                                     :quote="item.quote" />
