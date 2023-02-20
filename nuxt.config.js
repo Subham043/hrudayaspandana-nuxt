@@ -146,10 +146,4 @@ export default {
     }
   },
 
-  render: {
-    static: {
-      maxAge: '2d'
-    }
-  }
-
 }
