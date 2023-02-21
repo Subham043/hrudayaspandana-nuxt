@@ -346,13 +346,15 @@ export default {
             },
         };
     },
+    async fetch() {
+      await this.getBanners();
+    },
     mounted() {
         // eslint-disable-next-line nuxt/no-env-in-hooks
         if (process.client) {
             this.$scrollTo('#__nuxt', 0, { force: true })
         }
         this.getBlogs();
-        this.getBanners();
         this.getVideoBanner();
         this.getGalleryImages();
     },
