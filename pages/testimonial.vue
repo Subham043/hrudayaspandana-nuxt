@@ -134,13 +134,15 @@ export default {
             },
         }
     },
+    async fetch() {
+      await this.getWordData();
+      await this.getVideoData();
+    },
     mounted(){
         // eslint-disable-next-line nuxt/no-env-in-hooks
       if(process.client){
           this.$scrollTo('#__nuxt', 0, {force: true})
       }
-        this.getWordData();
-        this.getVideoData();
     },
     methods: {
         async getWordData() {

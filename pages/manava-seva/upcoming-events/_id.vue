@@ -124,8 +124,8 @@ export default {
             imageLink:'',
         }
     },
-    beforeMount(){
-        this.checkId();
+    async fetch() {
+      await this.checkId();
     },
     mounted() {
         // eslint-disable-next-line nuxt/no-env-in-hooks

@@ -85,6 +85,9 @@ export default {
             filter: this.$route.query.filter ? this.$route.query.filter : 'madhava-seva'
         }
     },
+    async fetch() {
+      await this.handlePageChnage();
+    },
     watch: {
         $route(to, from) {
             this.handlePageChnage();
@@ -95,7 +98,6 @@ export default {
       if(process.client){
           this.$scrollTo('#__nuxt', 0, {force: true})
       }
-        this.handlePageChnage();
     },
     methods: {
         async getTableData(page=0,filter='madhava-seva',status=1) {
