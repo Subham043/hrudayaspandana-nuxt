@@ -13,8 +13,8 @@
 							</li>
 							<li class="footer-link">
 								Hrudaya Spandana<br>
-								<a 
-									href="https://goo.gl/maps/LfJa1x3MQGusDVB7A" 
+								<a
+									href="https://goo.gl/maps/LfJa1x3MQGusDVB7A"
 									class="footer-link-href"
 									target="_blank"> E601, Aishwarya Lake View Residency,<br>
 									6th Cross, Kaggadasapura,<br>
@@ -22,7 +22,7 @@
 									India &nbsp;&nbsp;<i class="fas fa-map-marker-alt"></i></a>
 							</li>
 							<li class="footer-link">
-								<a 
+								<a
 									href="mailto:info@hrudayaspandana.org"
 									class="footer-link-href">info@hrudayaspandana.org</a>
 							</li>
@@ -77,27 +77,27 @@
 				<div class="wrapper">
 					<ul class="footer-link-ul-social">
 						<li class="footer-link-social">
-							<a 
+							<a
 								href="https://www.facebook.com/Hrudaya-Spandana-112948621170832" class="footer-link-href"
 								target="_blank"><i class="fab fa-facebook-f"></i></a>
 						</li>
 						<li class="footer-link-social">
-							<a 
+							<a
 								href="https://www.instagram.com/hrudaya.spandana/" target="_blank"
 								class="footer-link-href"><i class="fab fa-instagram"></i></a>
 						</li>
 						<li class="footer-link-social">
-							<a 
+							<a
 								href="https://www.linkedin.com/company/77675080/admin/" target="_blank"
 								class="footer-link-href"><i class="fab fa-linkedin-in"></i></a>
 						</li>
 						<li class="footer-link-social">
-							<a 
+							<a
 								href="https://www.youtube.com/channel/UCVJc6AiIzMPooy-9JdirJOg" target="_blank"
 								class="footer-link-href"><i class="fab fa-youtube"></i></a>
 						</li>
 						<li class="footer-link-social">
-							<a 
+							<a
 								href="https://twitter.com/Hrudaya_Spandan" class="footer-link-href" target="_blank"><i
 									class="fab fa-twitter"></i></a>
 						</li>
@@ -109,7 +109,7 @@
 
 
 					</ul>
-					<p>Copyright &copy; 2021 by Hrudayaspandana</p>
+					<p>Copyright &copy; {{ new Date().getFullYear() }} by Hrudayaspandana</p>
 				</div>
 			</div>
 		</footer>

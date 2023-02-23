@@ -127,6 +127,11 @@ export default {
           showNav : false,
       }
   },
+  watch: {
+      $route(to, from) {
+        this.showNav = false
+      }
+  },
 }
 </script>
 
