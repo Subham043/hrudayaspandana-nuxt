@@ -6,14 +6,12 @@
                 <div class="slider-div-box">
                     <div class="regular slider">
                         <template v-if="banner.length>0">
-                          <client-only>
                             <VueSlickCarousel v-bind="slickOptions" ref="slickBanner">
                                 <BannerSlideComponent
                                     v-for="(item, i) in banner" :key="i"
                                     :image="item.image"
                                     :quote="item.quote" />
                             </VueSlickCarousel>
-                          </client-only>
                         </template>
                         <div>
                             <button type="button" data-role="none" class="slick-prev slick-arrow" style="" @click="prevNavClick">
@@ -348,9 +346,9 @@ export default {
             },
         };
     },
-    async fetch() {
-      await this.getBanners();
-    },
+    // async fetch() {
+    //   await this.getBanners();
+    // },
     mounted() {
         // eslint-disable-next-line nuxt/no-env-in-hooks
         if (process.client) {
@@ -359,6 +357,7 @@ export default {
         this.getBlogs();
         this.getVideoBanner();
         this.getGalleryImages();
+        this.getBanners();
     },
     methods: {
         nextNavClick() {
