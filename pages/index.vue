@@ -281,7 +281,7 @@
             <div class="modal-body video-modal-body">
                 <iframe
                     id="iframeVdo"
-                    :src="videoBannerVideo"
+                    :src="dialogFormVisible ? videoBannerVideo : ''"
                     title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
