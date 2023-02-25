@@ -209,9 +209,11 @@ export default {
             this.$refs.slickTestimonial.prev()
         },
         mytree: function(domEl, x) {
+            OrgChart.templates.ula.field_0 =
+            '<text data-width="145" data-text-overflow="multiline" style="font-size: 18px;" fill="#039BE5" x="95" y="45">{val}</text>';
             this.chart = new OrgChart (domEl, {
                 mouseScrool: OrgChart.action.none,
-                scaleInitial: OrgChart.match.width,
+                scaleInitial: OrgChart.match.boundary,
                 layout: OrgChart.tree,
                 enableSearch: false,
                 template: "ula",

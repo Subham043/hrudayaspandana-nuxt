@@ -201,7 +201,7 @@
                     type="button"
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
-                    :video_url="videoBannerVideo"
+                    :video_url="dialogFormVisible ? videoBannerVideo : ''"
                     @click="dialogFormVisible=true"
                     >
                     <i class="fas fa-play"></i>
