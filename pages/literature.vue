@@ -21,7 +21,7 @@
 
                 </viewer>
             </div>
-            <div class="gallery-main-btn">
+            <div v-if="tableData.length > 0" class="gallery-main-btn">
                 <pagination v-model="currentPage" :records="count" :per-page="9" :options="{chunk:9, chunksNavigation:'scroll'}" @paginate="handlePaginationChnage"/>
             </div>
         </section>
