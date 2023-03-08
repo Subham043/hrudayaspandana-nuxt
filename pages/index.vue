@@ -185,7 +185,7 @@
                 <a
                     v-for="(item, i) in galleryImages" :key="i"
                     href="javascript:void(0)"
-                    class="thumbnail img-thumbnail">
+                    class="thumbnail img-thumbnail home-thumb">
                     <img
                         onContextMenu="return false;"
                         alt=".."

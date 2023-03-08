@@ -7,7 +7,7 @@
                 <div class="donation-row">
                     <div class="col-2-donation">
                         <div class="heading">
-                            <p class="upper-heading">donations</p>
+                            <!-- <p class="upper-heading">donations</p> -->
                             <h4 class="lower-heading">We Together Can Make A Difference...</h4>
                         </div>
                         <div class="paragraph">

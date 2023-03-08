@@ -7,7 +7,7 @@
                 <div class="about-page-row">
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div">
                         <div class="heading">
-                            <p class="upper-heading">Volunteer</p>
+                            <!-- <p class="upper-heading">Volunteer</p> -->
                             <h4 class="lower-heading">Volunteer</h4>
                         </div>
                         <div class="text">

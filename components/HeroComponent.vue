@@ -4,8 +4,9 @@
         <div class="container-fluid">
             <div class="row">
               <div class="col-lg-5 offset-lg-7 col-md-5 offset-md-7 col-sm-5 offset-sm-7">
-                <div class="main-div-hero">
-                    <h2>{{title}}</h2>
+                <div class="main-div-hero d-flex justify-content-center align-items-center">
+                    <!-- <h2>{{title}}</h2> -->
+                    <h2>&nbsp;</h2>
                     <p>Home / {{title}}</p>
                 </div>
               </div>

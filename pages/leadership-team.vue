@@ -7,7 +7,7 @@
                 <div class="about-page-row">
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col team-col">
                         <div class="heading">
-                            <p class="upper-heading">Team</p>
+                            <!-- <p class="upper-heading">Team</p> -->
                             <h4 class="lower-heading">Leadership Team</h4>
                         </div>
                         <div class="chart-container" style="margin-top:30px">
@@ -175,11 +175,11 @@ export default {
             },
             nodes: [
                 { id: 1, name: "Hrudayaspandana", title: "Trust", img: "/images/round-logo.webp", tags: ["subLevels0"] },
-                { id: 2, pid: 1, name: "Trust Development Specialist", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
-                { id: 3, pid: 1, name: "Chief Financial Advisor", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
-                { id: 4, pid: 1, name: "Advisory Committee", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
-                { id: 5, pid: 1, name: "Sai Mayee Trust", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
-                { id: 6, pid: 1, name: "Sri Sai Meru Mathi Trust", title: "Sectors", img: "/images/round-logo.webp", tags: ["subLevels1"] },
+                { id: 2, pid: 1, name: "Trust Development Specialist", title: "Sectors", img: "/images/white.jpeg", tags: ["subLevels1"] },
+                { id: 3, pid: 1, name: "Chief Financial Advisor", title: "Sectors", img: "/images/white.jpeg", tags: ["subLevels1"] },
+                { id: 4, pid: 1, name: "Advisory Committee", title: "Sectors", img: "/images/white.jpeg", tags: ["subLevels1"] },
+                { id: 5, pid: 1, name: "Sai Mayee Trust", title: "Sectors", img: "/images/white.jpeg", tags: ["subLevels1"] },
+                { id: 6, pid: 1, name: "Sri Sai Meru Mathi Trust", title: "Sectors", img: "/images/white.jpeg", tags: ["subLevels1"] },
                 { id: 7, pid: 2, name: "Sivaumar", title: "Member", img: "/images/leader/leader14.webp", about: "PVB Sivakumar (Trust Development Specialist, Hrudaya Spandana) has done graduation in Arts and diploma in business management.He worked as a Zonal sales manager in a reputed company." },
                 { id: 8, pid: 3, name: "Sailesh", title: "Member", img: "/images/leader/leader13.jpeg", about: "Sailesh K (Chief Financial Advisor, Hrudaya Spandana) is a chartered Accountant in service with 25 + years of experience.Currently working as a branch manager in ICICI." },
                 { id: 9, pid: 4, name: "M Venkateswarulu", title: "Member", img: "/images/leader/leader9.jpg", about: "M Venkateshwarlu (an advisor, Hrudaya Spandana), holds master’s degree in mechanical engineering from NIT, Warangal.He is currently working as a senior scientist at GTRE, DRDO." },

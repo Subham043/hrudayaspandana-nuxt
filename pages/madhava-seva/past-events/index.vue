@@ -5,7 +5,7 @@
         <section class="events-page">
         <div class="wrapper">
             <div class="heading">
-                <p class="upper-heading">Events</p>
+                <!-- <p class="upper-heading">Events</p> -->
                 <h4 class="lower-heading">Past Events</h4>
             </div>
             <div class="events-page-main-div">

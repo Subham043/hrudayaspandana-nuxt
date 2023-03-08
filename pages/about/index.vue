@@ -6,7 +6,7 @@
                 <div class="about-page-row">
                     <div class="col-lg-6 col-md-12 col-sm-12 about-page-col mission-col vision-col">
                         <div class="heading">
-                            <p class="upper-heading">About</p>
+                            <!-- <p class="upper-heading">About</p> -->
                             <h4 class="lower-heading">Hrudaya Spandana</h4>
                         </div>
                         <div class="text">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 second-about-text-div about-page-col">
                         <div class="heading">
-                            <p class="upper-heading">Trust</p>
+                            <!-- <p class="upper-heading">Trust</p> -->
                             <h4 class="lower-heading">Sai Mayee Trust</h4>
                         </div>
                         <div class="text">
@@ -98,7 +98,7 @@
                     </div>
                     <div class="col-lg-6 col-md-12 col-sm-12 third-about-text-div about-page-col">
                         <div class="heading">
-                            <p class="upper-heading">Trust</p>
+                            <!-- <p class="upper-heading">Trust</p> -->
                             <h4 class="lower-heading">Sri Sai Meru Mathi Trust</h4>
                         </div>
                         <div class="text">

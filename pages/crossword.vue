@@ -5,7 +5,7 @@
         <section class="gallery-page">
             <div class="wrapper">
                 <div class="heading">
-                    <p class="upper-heading">Crossword</p>
+                    <!-- <p class="upper-heading">Crossword</p> -->
                     <h4 class="lower-heading">Latest From Crossword</h4>
                 </div>
 

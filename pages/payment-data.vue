@@ -5,7 +5,7 @@
         <section class="gallery-page">
             <div class="wrapper">
                 <div class="heading">
-                    <p class="upper-heading">Payment</p>
+                    <!-- <p class="upper-heading">Payment</p> -->
                     <h4 class="lower-heading">Donation</h4>
                 </div>
 

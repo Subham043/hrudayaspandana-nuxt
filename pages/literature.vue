@@ -5,7 +5,7 @@
         <section class="gallery-page">
             <div class="wrapper">
                 <div class="heading">
-                    <p class="upper-heading">Literature</p>
+                    <!-- <p class="upper-heading">Literature</p> -->
                     <h4 class="lower-heading">Latest From Literature</h4>
                 </div>
 
