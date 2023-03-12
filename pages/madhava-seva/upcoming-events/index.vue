@@ -30,7 +30,7 @@
                                         <!-- <img src="/images/om.png" /> -->
                                         <NuxtLink :to="`/madhava-seva/upcoming-events/${item.id}`">{{ item.name }}</NuxtLink>
                                     </h4>
-                                    <h6><i class="el-icon-time"></i> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}  - {{$dateFns.format(new Date(item.edate), 'dd MMM yyyy')}} </h6>
+                                    <h6><i class="el-icon-time"></i> {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}} </h6>
                                     <NuxtLink :to="`/madhava-seva/upcoming-events/${item.id}`" class="event-link">Learn More <i class="el-icon-right"></i></NuxtLink>
                                 </div>
                             </div>
