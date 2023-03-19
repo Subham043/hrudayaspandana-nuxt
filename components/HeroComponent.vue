@@ -1,5 +1,7 @@
 <template>
-    <section class="hero"
+    <section
+        id="hero-div"
+        class="hero"
         style='background-image: linear-gradient(rgba(255, 170, 73, 0.6), rgba(244, 229, 188, 0.6)), url("/images/page-banner.webp");'>
         <div class="container-fluid">
             <div class="row">

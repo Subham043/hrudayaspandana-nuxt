@@ -9,11 +9,11 @@
                 <h4 class="lower-heading">Latest From Gallery</h4>
             </div>
 
-            <div class="heading searchCont">
+            <!-- <div class="heading searchCont">
                 <p>
                     <input id="inputSearch" v-model="search" type="text" placeholder="Search" @input="handleSearchField">
                 </p>
-            </div>
+            </div> -->
 
             <div id="gallery-menu">
                 <a
@@ -121,7 +121,8 @@ export default {
         },
         handlePageChnage(){
             this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
-            this.getTableData(this.$route.query.page ? Number(this.$route.query.page) : 1, this.$route.query.filter ? this.$route.query.filter : 'all', this.$route.query.search ? this.$route.query.search : '');
+            this.filter = this.$route.query.filter ? this.$route.query.filter : 'all';
+            this.getTableData(this.currentPage, this.filter, this.$route.query.search ? this.$route.query.search : '');
             if(process.client){
                 this.$scrollTo('#__nuxt', 0, {force: true})
             }

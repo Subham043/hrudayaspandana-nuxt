@@ -110,7 +110,8 @@ export default {
         },
         handlePageChnage(){
             this.currentPage = this.$route.query.page ? Number(this.$route.query.page) : 1;
-            this.getTableData(this.$route.query.page ? Number(this.$route.query.page) : 1, this.$route.query.filter ? this.$route.query.filter : 'all');
+            this.filter = this.$route.query.filter ? this.$route.query.filter : 'all';
+            this.getTableData(this.currentPage, this.filter);
             if(process.client){
                 this.$scrollTo('#__nuxt', 0, {force: true})
             }

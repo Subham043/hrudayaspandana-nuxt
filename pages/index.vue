@@ -146,7 +146,7 @@
         <section class="blogs">
             <div class="wrapper">
                 <div class="heading">
-                    <p class="upper-heading">Events</p>
+                    <!-- <p class="upper-heading">Events</p> -->
                     <h4 class="lower-heading">Events</h4>
                 </div>
                 <div class="blogs-main">
@@ -177,7 +177,7 @@
         <section class="gallery">
             <div class="wrapper">
                 <div class="heading">
-                    <p class="upper-heading">Gallery</p>
+                    <!-- <p class="upper-heading">Gallery</p> -->
                     <h4 class="lower-heading">Latest From Gallery</h4>
                 </div>
             </div>
@@ -222,7 +222,7 @@
         <section class="events">
             <div class="wrapper">
                 <div class="heading">
-                    <p class="upper-heading">Blogs</p>
+                    <!-- <p class="upper-heading">Blogs</p> -->
                     <h4 class="lower-heading">Latest From Blogs</h4>
                 </div>
 
