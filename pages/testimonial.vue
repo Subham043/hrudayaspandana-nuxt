@@ -8,7 +8,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col">
                         <div class="heading">
                             <!-- <p class="upper-heading">Testimonials</p> -->
-                            <h4 class="lower-heading">Testimonials</h4>
+                            <!-- <h4 class="lower-heading">Testimonials</h4> -->
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col">

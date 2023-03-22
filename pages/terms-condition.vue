@@ -8,7 +8,7 @@
 
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div">
                         <div class="heading">
-                            <h4 class="lower-heading">Terms & Conditions</h4>
+                            <!-- <h4 class="lower-heading">Terms & Conditions</h4> -->
                         </div>
                         <div class="text">
                             <p>The use of this website is subject to the following terms of use:</p>

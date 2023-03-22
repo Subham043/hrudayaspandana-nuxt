@@ -6,11 +6,11 @@
             <div class="wrapper">
                 <div class="about-page-row">
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col team-col">
-                        <div class="heading">
-                            <!-- <p class="upper-heading">Team</p> -->
+                        <!-- <div class="heading">
+                            <p class="upper-heading">Team</p>
                             <h4 class="lower-heading">Leadership Team</h4>
-                        </div>
-                        <div class="chart-container" style="margin-top:30px">
+                        </div> -->
+                        <div class="chart-container">
                             <div id="tree" ref="tree"></div>
                         </div>
                     </div>

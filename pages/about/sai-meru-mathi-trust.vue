@@ -9,7 +9,7 @@
                         class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div trust-no-bottom-col trust-page-col-three">
                         <div class="heading">
                             <!-- <p class="upper-heading">Trust</p> -->
-                            <h4 class="lower-heading">Sri Sai Meru Mathi Trust</h4>
+                            <!-- <h4 class="lower-heading">Sri Sai Meru Mathi Trust</h4> -->
                         </div>
                         <div class="text">
                             <p>Temples in India were (and still are) not merely architectural marvels of breath-taking

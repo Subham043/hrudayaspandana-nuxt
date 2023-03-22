@@ -42,12 +42,12 @@ if(process.client){
               const navbarHeight = document.querySelector('#navbar').offsetHeight;
               document.body.style.paddingTop = navbarHeight + 'px';
               document.getElementById('scrollTopButton').style.display = 'block';
-              document.querySelector('.hero-div').style.marginTop = navbarHeight + 'px'
+              document.querySelector('#hero-div').style.marginTop = navbarHeight + 'px'
             } else {
               document.getElementById('navbar').classList.remove('fixed-top');
               document.body.style.paddingTop = '0';
               document.getElementById('scrollTopButton').style.display = 'none';
-              document.querySelector('.hero-div').style.marginTop = '0px'
+              document.querySelector('#hero-div').style.marginTop = '0px'
           }
       });
   });

@@ -7,7 +7,7 @@
                 <div class="hundi-row">
                     <div class="col-lg-7 col-md-8 col-sm-12">
                         <div class="heading">
-                            <h4 class="lower-heading text-unset">e-Hundi</h4>
+                            <!-- <h4 class="lower-heading text-unset">e-Hundi</h4> -->
                         </div>
                         <ValidationObserver ref="form" v-slot="{ handleSubmit }">
                         <form id="hundiForm" method="post" @submit.prevent="handleSubmit(formHandler)">

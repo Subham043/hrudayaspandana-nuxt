@@ -7,7 +7,7 @@
                     <div class="col-lg-6 col-md-12 col-sm-12 about-page-col mission-col vision-col">
                         <div class="heading">
                             <!-- <p class="upper-heading">About</p> -->
-                            <h4 class="lower-heading">Hrudaya Spandana</h4>
+                            <!-- <h4 class="lower-heading">Hrudaya Spandana</h4> -->
                         </div>
                         <div class="text">
                             <h5 class="lower-heading">Vision</h5>

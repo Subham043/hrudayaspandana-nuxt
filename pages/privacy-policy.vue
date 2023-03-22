@@ -8,7 +8,7 @@
 
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div">
                         <div class="heading">
-                            <h4 class="lower-heading">Privacy Policy</h4>
+                            <!-- <h4 class="lower-heading">Privacy Policy</h4> -->
                         </div>
                         <div class="text">
                             <p>Hrudaya Spandana (HS) assures and is committed to protecting the privacy of all users who

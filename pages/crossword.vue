@@ -6,7 +6,7 @@
             <div class="wrapper">
                 <div class="heading">
                     <!-- <p class="upper-heading">Crossword</p> -->
-                    <h4 class="lower-heading">Latest From Crossword</h4>
+                    <!-- <h4 class="lower-heading">Latest From Crossword</h4> -->
                 </div>
 
             </div>

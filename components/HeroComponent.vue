@@ -9,7 +9,8 @@
                 <div class="main-div-hero d-flex justify-content-center align-items-center">
                     <!-- <h2>{{title}}</h2> -->
                     <h2>&nbsp;</h2>
-                    <p>Home / {{title}}</p>
+                    <p>
+                     <NuxtLink class="link-home" to="/">Home</NuxtLink> / {{title}}</p>
                 </div>
               </div>
             </div>
@@ -28,3 +29,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.link-home{
+  text-decoration: none;
+  color: inherit;
+}
+</style>

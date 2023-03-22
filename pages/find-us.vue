@@ -6,7 +6,7 @@
             <div class="wrapper">
                 <div class="heading">
                     <!-- <p class="upper-heading">Blogs</p> -->
-                    <h4 class="lower-heading">Find Us</h4>
+                    <!-- <h4 class="lower-heading">Find Us</h4> -->
                 </div>
                 <div class="events-main">
                     <div class="events-row">

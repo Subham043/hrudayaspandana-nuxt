@@ -31,10 +31,10 @@
                             <p v-html="description1"></p>
                         </div>
                         <div v-if="description2" class="col-lg-12 col-md-12 col-sm-12 paragraph_div">
-                            <p v-html="description2"></p>
+                            <p v-if="description2!='null'" v-html="description2"></p>
                         </div>
                         <div v-if="description3" class="col-lg-12 col-md-12 col-sm-12 paragraph_div">
-                            <p v-html="description3"></p>
+                            <p v-if="description2!='null'" v-html="description3"></p>
                         </div>
                     </div>
                 </div>
@@ -137,10 +137,14 @@ export default {
     },
     methods: {
         async checkId(){
-            const loading = this.$loading({
-            lock: true,
-            fullscreen: true,
-            });
+            let loading = null
+            if (process.client) {
+              // eslint-disable-next-line no-unused-vars
+              loading = this.$loading({
+                lock: true,
+                fullscreen: true,
+              });
+            }
             if(!this.$route.params.id){
                 this.$toast.error('Invalid ID')
                 this.$router.push('/madhava-seva/upcoming-events');
@@ -162,7 +166,10 @@ export default {
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
                 this.$router.push('/madhava-seva/upcoming-events');
             } finally{
+              if (process.client && loading) {
+                // eslint-disable-next-line no-undef
                 loading.close()
+              }
             }
         },
     }

@@ -8,7 +8,7 @@
                     <div class="col-lg-7 col-md-8 col-sm-12">
                         <div class="heading">
                             <!-- <p class="upper-heading">MAIL US</p> -->
-                            <h4 class="lower-heading">Have a Question?<br>Drop Us a Message!</h4>
+                            <!-- <h4 class="lower-heading">Have a Question?<br>Drop Us a Message!</h4> -->
                         </div>
                         <ValidationObserver ref="form" v-slot="{ handleSubmit }">
                         <form id="contactForm" method="post" @submit.prevent="handleSubmit(formHandler)">
