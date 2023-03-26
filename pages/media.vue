@@ -4,10 +4,10 @@
 
         <section class="gallery-page">
             <div class="wrapper">
-                <div class="heading">
-                    <!-- <p class="upper-heading">MEDIA</p> -->
-                    <!-- <h4 class="lower-heading">Latest From Media</h4> -->
-                </div>
+                <!-- <div class="heading">
+                    <p class="upper-heading">MEDIA</p>
+                    <h4 class="lower-heading">Latest From Media</h4>
+                </div> -->
 
             </div>
             <viewer class="gallery-box" :images="tableData">

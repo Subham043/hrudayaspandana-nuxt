@@ -4,10 +4,10 @@
 
         <section class="gallery-page">
         <div class="wrapper">
-            <div class="heading">
-                <!-- <p class="upper-heading">GALLERY</p> -->
-                <!-- <h4 class="lower-heading">Latest From Gallery</h4> -->
-            </div>
+            <!-- <div class="heading">
+                <p class="upper-heading">GALLERY</p>
+                <h4 class="lower-heading">Latest From Gallery</h4>
+            </div> -->
 
             <!-- <div class="heading searchCont">
                 <p>
@@ -35,7 +35,7 @@
 
         </div>
         <div class="gallery-box">
-            <viewer id="gallery" class="gallery-main" :images="tableData">
+            <viewer id="gallery" :options="{zoom_in: false}" rebuild class="gallery-main" :images="tableData">
                 <div v-for="(item, i) in tableData" :key="i" class="gallery-main-container">
                     <div
                         class="thumbnail img-thumbnail"

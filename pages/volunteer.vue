@@ -6,10 +6,10 @@
             <div class="wrapper">
                 <div class="about-page-row">
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div">
-                        <div class="heading">
-                            <!-- <p class="upper-heading">Volunteer</p> -->
-                            <!-- <h4 class="lower-heading">Volunteer</h4> -->
-                        </div>
+                        <!-- <div class="heading">
+                            <p class="upper-heading">Volunteer</p>
+                            <h4 class="lower-heading">Volunteer</h4>
+                        </div> -->
                         <div class="text">
                             <p>We at Hrudaya
                                 Spandana are working towards bringing a positive &amp; long lasting changes in the lives

@@ -5,12 +5,12 @@
         <section class="about">
             <div class="wrapper">
                 <div class="about-page-row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 about-page-col">
+                    <!-- <div class="col-lg-12 col-md-12 col-sm-12 about-page-col">
                         <div class="heading">
-                            <!-- <p class="upper-heading">Testimonials</p> -->
-                            <!-- <h4 class="lower-heading">Testimonials</h4> -->
+                            <p class="upper-heading">Testimonials</p>
+                            <h4 class="lower-heading">Testimonials</h4>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col">
                         <div class="text">
                             <div class="owl-carousel">

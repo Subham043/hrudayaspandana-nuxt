@@ -10,8 +10,11 @@
                             <p class="upper-heading">Team</p>
                             <h4 class="lower-heading">Leadership Team</h4>
                         </div> -->
-                        <div class="chart-container">
+                        <!-- <div class="chart-container">
                             <div id="tree" ref="tree"></div>
+                        </div> -->
+                        <div class="team-img-container">
+                          <img src="/images/team.png" alt="">
                         </div>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12 about-page-col">
@@ -59,7 +62,7 @@
 </template>
 
 <script>
-import OrgChart from '@balkangraph/orgchart.js'
+// import OrgChart from '@balkangraph/orgchart.js'
 export default {
     name: "LeadershipPage",
     layout: "MainPageLayout",
@@ -198,9 +201,9 @@ export default {
             ]
         }
     },
-    mounted(){
-        this.mytree(this.$refs.tree, this.nodes)
-    },
+    // mounted(){
+    //     this.mytree(this.$refs.tree, this.nodes)
+    // },
     methods: {
         nextNavClick() {
             this.$refs.slickTestimonial.next()
@@ -208,40 +211,40 @@ export default {
         prevNavClick() {
             this.$refs.slickTestimonial.prev()
         },
-        mytree: function(domEl, x) {
-            OrgChart.templates.ula.field_0 =
-            '<text data-width="145" data-text-overflow="multiline" style="font-size: 18px;" fill="#039BE5" x="95" y="45">{val}</text>';
-            this.chart = new OrgChart (domEl, {
-                mouseScrool: OrgChart.action.none,
-                scaleInitial: OrgChart.match.boundary,
-                layout: OrgChart.tree,
-                enableSearch: false,
-                template: "ula",
-                editForm: {readOnly: true},
-                tags: {
-                    "subLevels0": {
-                        subLevels: 0
-                    },
-                    "subLevels1": {
-                        subLevels: 1
-                    },
-                    "subLevels2": {
-                        subLevels: 2
-                    },
-                    "subLevels3": {
-                        subLevels: 3
-                    },
-                    "subLevels4": {
-                        subLevels: 4
-                    }
-                },
-                nodes: x,
-                nodeBinding: {
-                    field_0: "name",
-                    img_0: "img"
-                }
-            });
-        }
+        // mytree: function(domEl, x) {
+        //     OrgChart.templates.ula.field_0 =
+        //     '<text data-width="145" data-text-overflow="multiline" style="font-size: 18px;" fill="#039BE5" x="95" y="45">{val}</text>';
+        //     this.chart = new OrgChart (domEl, {
+        //         mouseScrool: OrgChart.action.none,
+        //         scaleInitial: OrgChart.match.boundary,
+        //         layout: OrgChart.tree,
+        //         enableSearch: false,
+        //         template: "ula",
+        //         editForm: {readOnly: true},
+        //         tags: {
+        //             "subLevels0": {
+        //                 subLevels: 0
+        //             },
+        //             "subLevels1": {
+        //                 subLevels: 1
+        //             },
+        //             "subLevels2": {
+        //                 subLevels: 2
+        //             },
+        //             "subLevels3": {
+        //                 subLevels: 3
+        //             },
+        //             "subLevels4": {
+        //                 subLevels: 4
+        //             }
+        //         },
+        //         nodes: x,
+        //         nodeBinding: {
+        //             field_0: "name",
+        //             img_0: "img"
+        //         }
+        //     });
+        // }
     }
 }
 </script>

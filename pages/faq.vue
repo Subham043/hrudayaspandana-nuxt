@@ -5,12 +5,12 @@
         <section class="about">
             <div class="wrapper">
                 <div class="about-page-row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div faq-first-col">
+                    <!-- <div class="col-lg-12 col-md-12 col-sm-12 about-page-col first-about-text-div faq-first-col">
                         <div class="heading">
-                            <!-- <p class="upper-heading">FAQ</p> -->
-                            <!-- <h4 class="lower-heading">Frequently Asked Questions</h4> -->
+                            <p class="upper-heading">FAQ</p>
+                            <h4 class="lower-heading">Frequently Asked Questions</h4>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-lg-6 col-md-12 col-sm-12 second-about-text-div about-page-col">
                         <el-collapse v-model="activeNames" accordion>
                             <el-collapse-item name="1">

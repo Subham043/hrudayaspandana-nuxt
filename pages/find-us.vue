@@ -4,10 +4,10 @@
 
         <section class="events contact-events" style="padding-bottom:30px">
             <div class="wrapper">
-                <div class="heading">
-                    <!-- <p class="upper-heading">Blogs</p> -->
-                    <!-- <h4 class="lower-heading">Find Us</h4> -->
-                </div>
+                <!-- <div class="heading">
+                    <p class="upper-heading">Blogs</p>
+                    <h4 class="lower-heading">Find Us</h4>
+                </div> -->
                 <div class="events-main">
                     <div class="events-row">
 
