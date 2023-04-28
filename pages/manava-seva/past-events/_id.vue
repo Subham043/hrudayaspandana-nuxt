@@ -28,13 +28,13 @@
                         </div>
 
                         <div v-if="description1" class="col-lg-12 col-md-12 col-sm-12 paragraph_div">
-                            <p v-html="description1"></p>
+                            <p v-html-safe="description1"></p>
                         </div>
                         <div v-if="description2" class="col-lg-12 col-md-12 col-sm-12 paragraph_div">
-                            <p v-if="description2!='null'" v-html="description2"></p>
+                            <p v-if="description2!='null'" v-html-safe="description2"></p>
                         </div>
                         <div v-if="description3" class="col-lg-12 col-md-12 col-sm-12 paragraph_div">
-                            <p v-if="description2!='null'" v-html="description3"></p>
+                            <p v-if="description2!='null'" v-html-safe="description3"></p>
                         </div>
                     </div>
                 </div>

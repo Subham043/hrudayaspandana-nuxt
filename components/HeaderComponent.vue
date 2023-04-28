@@ -49,6 +49,8 @@
 								</li>
 								<li><NuxtLink to="/madhava-seva/upcoming-events">Upcoming
 										Events</NuxtLink></li>
+								<li><NuxtLink to="/madhava-seva/recurring-events">Recurring
+										Events</NuxtLink></li>
 							</ul>
 						</li>
 						<li class="menu-li parent"><a class="menu-links " href="#">Manava Seva</a>
@@ -57,6 +59,8 @@
 								</li>
 								<li><NuxtLink to="/manava-seva/upcoming-events">Upcoming
 										Events</NuxtLink></li>
+								<li><NuxtLink to="/manava-seva/recurring-events">Recurring
+										Events</NuxtLink></li>
 							</ul>
 						</li>
 
@@ -64,7 +68,7 @@
 							<ul class="child">
 								<!--<li><NuxtLink to="/">Literature</NuxtLink></li>-->
                 <li><NuxtLink to="/faq">FAQs</NuxtLink></li>
-								<li><a href="https://hrudayaspandana.org/blog" target="_blank">Blogs</a></li>
+								<li><a href="https://blog.hrudayaspandana.org" target="_blank">Blogs</a></li>
 								<!--<li><NuxtLink to="/">Crossword</NuxtLink></li>-->
 							</ul>
 						</li>

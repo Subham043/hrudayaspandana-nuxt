@@ -252,18 +252,18 @@
                                 </div>
                                 <div class="event-row-text event-row-two">
                                     <a target="_blank" :href="item.link">
-                                        <h4 style="text-transform: capitalize" v-html="item.title.rendered"></h4>
+                                        <h4 style="text-transform: capitalize" v-html-safe="item.title.rendered"></h4>
                                     </a>
-                                    <p class="text-hidden-3" v-html="item.content.rendered"></p>
+                                    <p class="text-hidden-3" v-html-safe="item.content.rendered"></p>
                                     <a class="pointer" target="_blank" :href="item.link">Read more</a>
                                 </div>
                             </template>
                             <template v-else>
                                 <div class="event-row-text event-row-four">
                                     <a target="_blank" :href="item.link">
-                                        <h4 style="text-transform: capitalize" v-html="item.title.rendered"></h4>
+                                        <h4 style="text-transform: capitalize" v-html-safe="item.title.rendered"></h4>
                                     </a>
-                                    <p class="text-hidden-3" v-html="item.content.rendered"></p>
+                                    <p class="text-hidden-3" v-html-safe="item.content.rendered"></p>
                                     <a class="pointer" target="_blank" :href="item.link">Read more</a>
                                 </div>
                                 <div class="event-row-line event-row-three">
@@ -404,7 +404,7 @@ export default {
         async getBlogs(){
             this.loading = true;
             try{
-                const response = await this.$axios.get('https://hrudayaspandana.org/blog/wp-json/wp/v2/posts');
+                const response = await this.$axios.get('https://blog.hrudayaspandana.org/wp-json/wp/v2/posts');
                 this.blogs = response.data
                 // console.log(this.blogs);
             }catch(e){

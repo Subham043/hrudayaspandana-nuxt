@@ -1,6 +1,6 @@
 <template>
     <div>
-        <LazyHeroComponent title="Madhava Seva" />
+        <LazyHeroComponent title="Manava Seva" />
 
         <section class="events-page">
             <div class="wrapper">
@@ -28,13 +28,13 @@
                         </div>
 
                         <div v-if="description1" class="col-lg-12 col-md-12 col-sm-12 paragraph_div">
-                            <p v-html-safe="description1"></p>
+                            <p v-html="description1"></p>
                         </div>
                         <div v-if="description2" class="col-lg-12 col-md-12 col-sm-12 paragraph_div">
-                            <p v-if="description2!='null'" v-html-safe="description2"></p>
+                            <p v-if="description2!='null'" v-html="description2"></p>
                         </div>
                         <div v-if="description3" class="col-lg-12 col-md-12 col-sm-12 paragraph_div">
-                            <p v-if="description2!='null'" v-html-safe="description3"></p>
+                            <p v-if="description2!='null'" v-html="description3"></p>
                         </div>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
 
 <script>
 export default {
-    name: "MadhavaUpcomingEventDetailPage",
+    name: "ManavaRecurringEventDetailPage",
     layout: "MainPageLayout",
     data() {
         return {
@@ -122,7 +122,7 @@ export default {
             description1:null,
             description2:null,
             description3:null,
-            type: 'madhava-seva',
+            type: 'manava-seva',
             imageLink:'',
         }
     },
@@ -147,7 +147,7 @@ export default {
             }
             if(!this.$route.params.id){
                 this.$toast.error('Invalid ID')
-                this.$router.push('/madhava-seva/upcoming-events');
+                this.$router.push('/manava-seva/recurring-events');
             }
             try {
                 const response = await this.$privateApi.get('/api/event/display/'+this.$route.params.id); // eslint-disable-line
@@ -164,7 +164,7 @@ export default {
             } catch (err) {
                 if(err?.response?.data?.message) this.$toast.error(err?.response?.data?.message)
                 if(err?.response?.data?.error) this.$toast.error(err?.response?.data?.error)
-                this.$router.push('/madhava-seva/upcoming-events');
+                this.$router.push('/manava-seva/recurring-events');
             } finally{
               if (process.client && loading) {
                 // eslint-disable-next-line no-undef
