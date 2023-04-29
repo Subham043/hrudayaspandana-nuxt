@@ -68,6 +68,7 @@
                                                         title="YouTube video player" frameborder="0"
                                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                         allowfullscreen
+                                                        crossorigin
                                                         style="width: 100%; height:100%;border-radius: 5px;border-top-right-radius: 30px;border-bottom-left-radius: 30px;"></iframe>
                                                 </div>
                                             </div>

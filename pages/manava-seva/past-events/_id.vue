@@ -86,7 +86,7 @@
                                 style="width:100%;height:350px;">
                                 <iframe
                                 id="iframeVdo"
-
+                                crossorigin
                                 :src="item.video"
                                 title="YouTube video player"
                                 frameborder="0"

@@ -30,7 +30,7 @@
                                 :src="item.media"
                                 title="YouTube video player"
                                 frameborder="0"
-
+                                crossorigin
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen
                                 style="width: 100%; height:100%"></iframe>
