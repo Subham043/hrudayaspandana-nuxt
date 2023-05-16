@@ -282,7 +282,7 @@
                     </div>
                 </div>
                 <div class="events-main-btn">
-                    <a target="_blank" href="https://hrudayaspandana.org/blog/">More Blogs</a>
+                    <a target="_blank" href="https://blog.hrudayaspandana.org">More Blogs</a>
                 </div>
             </div>
         </section>
