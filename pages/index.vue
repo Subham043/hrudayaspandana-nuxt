@@ -151,7 +151,7 @@
                 </div>
                 <div class="blogs-main">
                     <div class="blog-main-row">
-                        <LazyHomeEventCardComponent v-for="(item, i) in events" :key="i" :image="item.image" :title="item.title" :upcoming-link="item.upcomingLink" :past-link="item.pastLink" />
+                        <LazyHomeEventCardComponent v-for="(item, i) in events" :key="i" :image="item.image" :title="item.title" :upcoming-link="item.upcomingLink" :past-link="item.pastLink" :recurring-link="item.recurringLink" />
                     </div>
                 </div>
             </div>
@@ -336,8 +336,8 @@ export default {
                 {image:"/images/about/about5.webp", link:"/about/sai-meru-mathi-trust", heading:"Sri Sai Meru Mathi Trust", description:"The body is the temple of God and the temple is the body of societal consciousness of Divinity."}
             ],
             events: [
-                {image:"/images/swamy2.jpg", title:"Manava Seva", upcomingLink:"/manava-seva/upcoming-events", pastLink:"/manava-seva/past-events"},
-                {image:"/images/swamy1.jpg", title:"Madhava Seva", upcomingLink:"/madhava-seva/upcoming-events", pastLink:"/madhava-seva/past-events"},
+                {image:"/images/swamy2.jpg", title:"Manava Seva", upcomingLink:"/manava-seva/upcoming-events", pastLink:"/manava-seva/past-events", recurringLink:"/manava-seva/recurring-events"},
+                {image:"/images/swamy1.jpg", title:"Madhava Seva", upcomingLink:"/madhava-seva/upcoming-events", pastLink:"/madhava-seva/past-events", recurringLink:"/madhava-seva/recurring-events"},
             ],
             blogs:[],
             loading: false,

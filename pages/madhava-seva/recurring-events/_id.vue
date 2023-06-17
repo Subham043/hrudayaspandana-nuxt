@@ -11,14 +11,14 @@
                             <div class="heading">
                                 <h4 class="lower-heading">{{ name }}</h4>
                             </div>
-                            <div class="text__div">
+                            <!-- <div class="text__div"> -->
                                 <!-- <p v-if="sdate"><span><strong>Start Date :
                                         </strong></span>{{$dateFns.format(new Date(sdate), 'dd MMM yyyy')}}</p>
                                 <p v-if="edate"><span><strong>End Date :
                                         </strong></span>{{$dateFns.format(new Date(edate), 'dd MMM yyyy')}}</p> -->
-                                <p v-if="sdate"><span><strong>Date :
-                                        </strong></span>{{$dateFns.format(new Date(sdate), 'dd MMM yyyy')}}</p>
-                            </div>
+                                <!-- <p v-if="sdate"><span><strong>Date :
+                                        </strong></span>{{$dateFns.format(new Date(sdate), 'dd MMM yyyy')}}</p> -->
+                            <!-- </div> -->
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-12 img_div">
                             <img

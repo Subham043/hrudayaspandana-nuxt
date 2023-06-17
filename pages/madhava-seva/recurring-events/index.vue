@@ -51,10 +51,10 @@
                                         <!-- <img src="/images/om.png" /> -->
                                         <NuxtLink :to="`/madhava-seva/recurring-events/${item.id}`">{{ item.name }}</NuxtLink>
                                     </h4>
-                                    <h6>
+                                    <!-- <h6> -->
                                       <!-- <i class="el-icon-time"></i>  -->
-                                      {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}}
-                                    </h6>
+                                      <!-- {{$dateFns.format(new Date(item.sdate), 'dd MMM yyyy')}} -->
+                                    <!-- </h6> -->
                                     <NuxtLink :to="`/madhava-seva/recurring-events/${item.id}`" class="event-link">Learn More <i class="el-icon-right"></i></NuxtLink>
                                 </div>
                             </div>

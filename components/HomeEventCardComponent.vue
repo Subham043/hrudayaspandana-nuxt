@@ -13,6 +13,9 @@
                         <NuxtLink
                             :to="upcomingLink"
                             class="event-btn-new">Upcoming Events</NuxtLink>
+                        <NuxtLink
+                            :to="recurringLink"
+                            class="event-btn-new">Recurring Events</NuxtLink>
                     </div>
                 </div>
             </div>
@@ -42,6 +45,10 @@ export default {
             default: '/'
         },
         pastLink:{
+            type: String,
+            default: '/'
+        },
+        recurringLink:{
             type: String,
             default: '/'
         },
